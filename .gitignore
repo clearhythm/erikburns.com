@@ -1,0 +1,23 @@
+# Node modules (dependencies)
+node_modules/
+
+# Eleventy output directory
+dist/
+
+# Log files
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# OS generated files
+.DS_Store
+
+# GitHub settings
+.github/
+
+# Configuration files (workspace, etc.)
+conf/
+
+# Temp or backup files
+*.bak
+*.tmp

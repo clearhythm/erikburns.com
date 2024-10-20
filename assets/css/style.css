@@ -1,0 +1,33 @@
+/* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Full-page height */
+html, body {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif; /* Use any font you like */
+  background-color: #f4f4f4; /* Light background color */
+}
+
+/* Style the main content */
+main {
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #333;
+}
+
+p {
+  font-size: 1.5rem;
+  color: #666;
+}
+
+/*# sourceMappingURL=style.css.map */
