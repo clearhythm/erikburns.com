@@ -1,0 +1,22 @@
+{
+  "name": "erikburns",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "sass src/assets/styles:dist/assets/css --style=compressed",
+    "watch:css": "sass --watch src/assets/styles:dist/assets/css",
+    "build": "npx @11ty/eleventy",
+    "watch": "npx @11ty/eleventy --serve",
+    "start": "concurrently \"npm run watch:css\" \"npm run watch\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+    "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "sass": "^1.80.3",
+    "concurrently": "^9.0.1"
+  }
+}
