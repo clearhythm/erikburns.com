@@ -8,6 +8,7 @@ The structure was adapted from [this blog post](https://www.njfamirm.ir/en/blog/
 ## Folder Structure
 Here's the advanced folder structure implemented in this project:
 
+```
 ├── 11ty/             # Eleventy build scripts
     ├── collections/  # Collections
     ├── filters/      # Filters
@@ -24,6 +25,7 @@ Here's the advanced folder structure implemented in this project:
         └── styles/   # SCSS (compiled to CSS)
 ├── dist/             # Output folder
     └── assets/       # Assets (compiled CSS, JS, optimized images, etc.)
+```
 
 ## Rationale Behind This Structure
 - **Separation of Concerns**: The structure is designed to keep different parts of the project organized and isolated. Content, templates, static assets, and build logic are separated for better maintainability. All build-related logic is contained within the `11ty/` folder, while content and static assets are in `src/`.
