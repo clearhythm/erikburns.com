@@ -2,6 +2,8 @@ module.exports = function(eleventyConfig) {
   // Passthrough Copy for static assets (images and fonts)
   eleventyConfig.addPassthroughCopy("src/assets/img");
   eleventyConfig.addPassthroughCopy("src/assets/fonts");
+  // Passthrough to ensure site can resolve on gh-pages
+  eleventyConfig.addPassthroughCopy("src/CNAME");
 
   return {
     dir: {
