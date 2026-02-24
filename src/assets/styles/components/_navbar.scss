@@ -10,7 +10,7 @@
   transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 1rem;
 }
 
 .navbar.active {
@@ -29,7 +29,7 @@
   font-weight: 400;
   color: #333;
   text-decoration: none;
-  margin: 0 auto;
+  margin: 0;
   letter-spacing: 0.01em;
 
   &:hover { text-decoration: none; }
