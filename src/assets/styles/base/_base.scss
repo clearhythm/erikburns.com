@@ -1,5 +1,6 @@
 html {
   min-height: 100vh;
+  scroll-behavior: smooth;
   background: linear-gradient(to bottom, #EBEDFD, #FDFCF3 70%, #B5DAFF);
   transition: background 0.3s ease;
 
@@ -23,22 +24,14 @@ body {
 
 .main {
   flex: 1;
-  padding-top: 80px;
   padding-bottom: $space-2xl;
 }
 
 .footer {
-  background: $color-bg-muted;
-  border-top: 1px solid $color-border;
+  background: #1e0d52;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
   padding: $space-lg 0;
   text-align: center;
 
-  p { margin-bottom: 0; color: $color-text-muted; font-size: $font-size-sm; }
-
-  html[data-theme="dark"] & {
-    background: $dark-color-bg-muted;
-    border-top-color: $dark-color-border;
-
-    p { color: $dark-color-text-muted; }
-  }
+  p { margin-bottom: 0; color: rgba(255, 255, 255, 0.35); font-size: $font-size-sm; }
 }
