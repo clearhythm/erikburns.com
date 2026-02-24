@@ -1,24 +1,16 @@
 {
   "name": "erikburns",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build:css": "sass src/assets/styles:dist/assets/css --style=compressed",
-    "watch:css": "sass --watch src/assets/styles:dist/assets/css",
-    "build": "npx @11ty/eleventy",
-    "watch": "npx @11ty/eleventy --serve",
-    "start": "concurrently \"npm run watch:css\" \"npm run watch\"",
-    "deploy": "npm run build && npx gh-pages -d dist"
+    "build:css": "sass src/assets/styles/main.scss:src/assets/css/main.css --style=compressed",
+    "watch:css": "sass --watch src/assets/styles/main.scss:src/assets/css/main.css",
+    "build": "npm run build:css && npx @11ty/eleventy",
+    "start": "concurrently \"npm:watch:css\" \"npx @11ty/eleventy --serve\""
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
     "concurrently": "^9.0.1",
-    "gh-pages": "^6.2.0",
     "sass": "^1.80.3"
   }
 }

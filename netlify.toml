@@ -1,0 +1,3 @@
+[build]
+  command = "npm run build:css && npx @11ty/eleventy"
+  publish = "dist"

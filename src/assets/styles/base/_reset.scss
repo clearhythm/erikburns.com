@@ -1,0 +1,73 @@
+// -------------------------------------------
+// File: _reset.scss
+// Description: A modern, lightweight CSS reset
+// URL: https://www.joshwcomeau.com/css/custom-css-reset/
+// -------------------------------------------
+
+// -------------------------------------------
+// 1. Box sizing rules
+// Ensure that the box-sizing is applied to all elements and pseudo-elements
+// to include padding and border in element's total width and height.
+// -------------------------------------------
+html {
+  font-size: 100%; // Default to 16px base font size
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit; // Use border-box for everything
+}
+
+// -------------------------------------------
+// 2. Remove default margins
+// Remove default margins from all elements for better layout control.
+// -------------------------------------------
+* {
+  margin: 0; // Remove all default margins
+}
+
+// -------------------------------------------
+// 3. Typography tweaks
+// Provide better defaults for typography with improved line height
+// and enhanced text rendering in modern browsers.
+// -------------------------------------------
+body {
+  line-height: 1.5; // Set accessible line height for better readability
+  -webkit-font-smoothing: antialiased; // Enhance text rendering on macOS and iOS
+}
+
+// -------------------------------------------
+// 4. Improve media defaults
+// Ensure that images, videos, and other media elements don't exceed
+// their container's width and display as block elements.
+// -------------------------------------------
+img, picture, video, canvas, svg {
+  display: block; // Ensure media elements are block elements
+  max-width: 100%; // Keep media elements within their container's width
+}
+
+// -------------------------------------------
+// 5. Inherit typography for forms
+// Remove built-in font styles from form elements and ensure they inherit
+// the same styles as the rest of the document.
+// -------------------------------------------
+input, button, textarea, select {
+  font: inherit; // Ensure form elements inherit font styles
+}
+
+// -------------------------------------------
+// 6. Prevent text overflow
+// Ensure that text elements break appropriately to prevent overflow.
+// -------------------------------------------
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word; // Enable word wrapping for text elements
+}
+
+// -------------------------------------------
+// 7. Root stacking context
+// Establish a root stacking context for better control of z-index and stacking
+// in applications with more complex layouts.
+// -------------------------------------------
+#root, #__next {
+  isolation: isolate; // Create a new stacking context
+}

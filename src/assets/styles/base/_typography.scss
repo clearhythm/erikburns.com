@@ -1,0 +1,44 @@
+@font-face {
+  font-family: 'Copernicus';
+  src: url('/assets/fonts/copernicus-book.woff') format('woff'),
+       url('/assets/fonts/copernicus-book.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-heading;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: $space-md;
+  color: $color-text;
+
+  html[data-theme="dark"] & {
+    color: $dark-color-text;
+  }
+}
+
+h1 { font-size: $font-size-4xl; }
+h2 { font-size: $font-size-3xl; }
+h3 { font-size: $font-size-2xl; }
+h4 { font-size: $font-size-xl; }
+
+p {
+  margin-bottom: $space-md;
+  line-height: 1.7;
+}
+
+a {
+  color: $color-primary;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+ul, ol {
+  margin-left: $space-lg;
+  margin-bottom: $space-md;
+}

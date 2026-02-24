@@ -1,15 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ title }}</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title or "Erik Burns" }}</title>
+  <meta name="description" content="{{ description or 'Product designer, hypnotherapist, and agentic AI builder. Twenty-five years shipping products, a clinical practice, and production AI systems used daily.' }}">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script>
+    (function() {
+      const saved = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', saved);
+    })();
+  </script>
 </head>
 <body>
-    <main>
-        {{ content | safe }}
-    </main>
+  {% include "nav.njk" %}
+
+  <main class="main">
+    {{ content | safe }}
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Erik Burns</p>
+    </div>
+  </footer>
+
+  <script src="/assets/js/navigation.js"></script>
+  <script>
+    (function() {
+      const toggle = document.getElementById('theme-toggle');
+      const icon = document.getElementById('theme-icon');
+      const text = document.getElementById('theme-text');
+      const html = document.documentElement;
+
+      function updateToggle() {
+        const dark = html.getAttribute('data-theme') === 'dark';
+        icon.textContent = dark ? '☀️' : '🌙';
+        text.textContent = dark ? 'Light Mode' : 'Dark Mode';
+      }
+
+      toggle.addEventListener('click', () => {
+        const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        updateToggle();
+      });
+
+      updateToggle();
+    })();
+  </script>
 </body>
 </html>

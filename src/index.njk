@@ -1,0 +1,236 @@
+---
+layout: base.njk
+title: Erik Burns — Product, Health & Agentic AI
+description: Product designer, hypnotherapist, and agentic AI builder. Twenty-five years shipping products, a clinical practice, and production AI systems used daily.
+---
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container-narrow">
+    <h1 class="hero-name">Erik Burns</h1>
+    <p class="hero-tagline">
+      Product, health tech, and agentic AI — built and used in the same life.
+    </p>
+    <div class="hero-cta">
+      <a href="https://linkedin.com/in/erikburns" class="btn btn-primary" target="_blank" rel="noopener">
+        Connect on LinkedIn
+      </a>
+      <a href="#work" class="btn btn-ghost">See the Work</a>
+    </div>
+  </div>
+</section>
+
+<!-- The Arc -->
+<section class="section" id="arc">
+  <div class="container-narrow">
+    <p class="section-label">The Arc</p>
+    <h2 class="section-title">Fifteen years in enterprise. A clinical practice. Production AI.</h2>
+
+    <div class="arc-prose">
+      <p>
+        I spent fifteen years building digital products for companies like Apple, Intuit,
+        Realtor.com, and Capital One — consumer and enterprise products used by tens of
+        millions of people. The work was real: a 14% lift in paid conversions at Realtor.com
+        ($45M incremental revenue), a 20% reduction in support calls at Intuit, a 300% ROI
+        increase for Capital One. Products that shipped and measured.
+      </p>
+      <p>
+        Then I built Healify, a behavioral health platform for therapists and clients to
+        measure progress together. It delivered over one million mood assessments.
+        Eventually I stepped away from the product to work directly with patients — a year
+        of treating anxiety, chronic pain, and stress as a clinical hypnotherapist.
+        That practice taught me things about human motivation, resistance, and behavior change
+        that no user research method had.
+      </p>
+      <p>
+        That clinical experience drove a full rebuild of Healify in 2025. It also shapes
+        everything about how I think about HabitualOS — an agentic AI platform I've built
+        and used daily since 2024. Not a demo, not a prototype. A multi-agent system
+        that handles real daily work, built by someone who understands what it actually
+        takes to change human behavior.
+      </p>
+      <p>
+        That arc — enterprise scale, clinical practice, hands-on AI building — is what
+        I bring to health tech.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Work -->
+<section class="section" id="work">
+  <div class="container">
+    <p class="section-label">Work</p>
+    <h2 class="section-title">What I've built</h2>
+
+    <!-- HabitualOS -->
+    <div class="work-card">
+      <div class="work-card-header">
+        <h3 class="work-name">HabitualOS</h3>
+        <p class="work-role">Agentic AI platform — productivity and habit tracking</p>
+      </div>
+      <div class="work-body">
+        <div class="work-description">
+          <p>
+            A multi-agent system that handles the operational overhead of daily work.
+            Multiple specialized agents manage different concerns: task creation and
+            scheduling, practice tracking, progress monitoring, and daily check-ins.
+          </p>
+          <p>
+            The system uses a structured signal protocol for agent output — agents emit
+            typed signals like <code>GENERATE_ACTIONS</code> (create a scheduled task),
+            <code>GENERATE_ASSET</code> (produce a deliverable now), or
+            <code>STORE_MEASUREMENT</code> (record a data point). This keeps agent behavior
+            constrained and auditable rather than freeform.
+          </p>
+          <p>
+            I'm the primary user. That's the design constraint that matters most.
+          </p>
+        </div>
+        <div class="work-details">
+          <h4>Technical patterns</h4>
+          <ul>
+            <li>Multi-agent orchestration with typed signal protocol</li>
+            <li>Tool use: autonomous task retrieval and update</li>
+            <li>Prompt caching for high-frequency interactions</li>
+            <li>Long-context memory for session continuity</li>
+            <li>Conversational UX for scheduling and task creation</li>
+          </ul>
+          <h4>Stack</h4>
+          <ul>
+            <li>Claude API (tool use, structured outputs, streaming)</li>
+            <li>Node.js + Netlify Functions</li>
+            <li>Google Firestore (user-partitioned)</li>
+            <li>11ty + Nunjucks + Zero Gravity</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Healify -->
+    <div class="work-card">
+      <div class="work-card-header">
+        <h3 class="work-name">Healify</h3>
+        <p class="work-role">Behavioral health platform — founded 2020, rebuilt 2025</p>
+      </div>
+      <div class="work-body">
+        <div class="work-description">
+          <p>
+            A privacy-first platform enabling therapists and clients to meaningfully
+            measure progress together. Over one million mood assessments served.
+            A 260% increase in reported client satisfaction.
+          </p>
+          <p>
+            In 2024, I stepped away from active development to work directly with
+            patients as a clinical hypnotherapist. Over a year of practice sessions
+            revealed what the product was missing. In 2025, I rebuilt it — this time
+            grounded in what actually happens in therapeutic relationships, not just
+            what looks good in user flows.
+          </p>
+        </div>
+        <div class="work-details">
+          <h4>Platform scale</h4>
+          <ul>
+            <li>1M+ mood assessments delivered</li>
+            <li>260% increase in client satisfaction scores</li>
+            <li>Privacy-first data model (fully user-partitioned)</li>
+            <li>100+ patients treated in clinical practice</li>
+          </ul>
+          <h4>Design focus</h4>
+          <ul>
+            <li>Behavioral science-backed assessment design</li>
+            <li>Longitudinal progress tracking</li>
+            <li>Therapist-client shared visibility</li>
+            <li>Onboarding and engagement optimization</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Enterprise -->
+    <div class="work-card">
+      <div class="work-card-header">
+        <h3 class="work-name">Enterprise Product</h3>
+        <p class="work-role">Apple · Realtor.com · Intuit · Capital One · and others</p>
+      </div>
+      <div class="work-body">
+        <div class="work-description">
+          <p>
+            Fifteen years leading product design and strategy for consumer and enterprise
+            products at named companies. Products used by tens of millions of people,
+            with documented business impact.
+          </p>
+          <p>
+            At Tangible (SF design consultancy), I led engagements across Capital One,
+            Intuit, and Apple. Before that, independent consulting for clients including
+            Xerox PARC, Symantec, Webex, Citrix, and Zurb.
+          </p>
+        </div>
+        <div class="work-details">
+          <h4>Measured outcomes</h4>
+          <ul>
+            <li>Realtor.com: 14% lift in paid conversions ($45M revenue)</li>
+            <li>Intuit: 20% reduction in support calls (impact award)</li>
+            <li>Capital One: 300% ROI increase, novel B2B credit app</li>
+            <li>PARC: 12% revenue increase for LADOT solution</li>
+          </ul>
+          <h4>Scope</h4>
+          <ul>
+            <li>Products used by 100M+ people</li>
+            <li>Cross-functional team leadership</li>
+            <li>Consumer and enterprise contexts</li>
+            <li>Concept through development hand-off</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Writing -->
+<section class="section" id="writing">
+  <div class="container-narrow">
+    <p class="section-label">Writing</p>
+    <h2 class="section-title">Articles and notes</h2>
+    <p class="section-intro">
+      I write about what I learn building these systems. Most of it lives on LinkedIn.
+    </p>
+    <ul class="writing-list">
+      <li class="writing-item">
+        <a href="https://www.linkedin.com/pulse/zero-gravity-semantic-microformat-ai-parseable-content-erik-burns" target="_blank" rel="noopener">
+          Zero Gravity: A Semantic Microformat for AI-Parseable Content
+        </a>
+        <p class="writing-meta">February 2026 · On building structured metadata that preserves document readability while giving AI agents real context</p>
+      </li>
+      <li class="writing-item">
+        <a href="https://linkedin.com/in/erikburns" target="_blank" rel="noopener">
+          More on LinkedIn
+        </a>
+        <p class="writing-meta">Agentic AI, conversational UX, and building with Claude</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- Elsewhere -->
+<section class="section" id="elsewhere">
+  <div class="container-narrow">
+    <p class="section-label">Elsewhere</p>
+    <h2 class="section-title">Find me</h2>
+    <ul class="elsewhere-list">
+      <li class="elsewhere-item">
+        <span class="elsewhere-label">LinkedIn</span>
+        <a class="elsewhere-link" href="https://linkedin.com/in/erikburns" target="_blank" rel="noopener">linkedin.com/in/erikburns</a>
+      </li>
+      <li class="elsewhere-item">
+        <span class="elsewhere-label">Podcast</span>
+        <a class="elsewhere-link" href="https://feelinggood.com/2025/02/10/435-meet-erik-burns/" target="_blank" rel="noopener">Feeling Good with David Burns — Hypnosomatics</a>
+      </li>
+      <li class="elsewhere-item">
+        <span class="elsewhere-label">Email</span>
+        <a class="elsewhere-link" href="mailto:erik@erikburns.com">erik@erikburns.com</a>
+      </li>
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,60 @@
+// -------------------------------------------
+// File: _mixins.scss
+// Description: Mixin library for fluid typography, vertical rhythm, and modular scale, etc
+// -------------------------------------------
+
+// Fluid Type Mixin to handle scaling between minimum and maximum viewport widths and font sizes
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+  font-size: $min-font-size; // Set the base font size to the minimum
+  @media screen and (min-width: $min-vw) {
+    font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+  }
+  @media screen and (min-width: $max-vw) {
+    font-size: $max-font-size; // Clamp to max font size at large screens
+  }
+}
+
+// -------------------------------------------
+// Mixin: fluid-vertical-rhythm
+// Description: Ensures vertical rhythm by setting a consistent line height
+// and top/bottom margins proportional to a baseline.
+// Parameters:
+// - $baseline: The baseline spacing value
+// - $line-height-multiplier: Multiplier to adjust line height for vertical rhythm
+// -------------------------------------------
+@mixin fluid-vertical-rhythm($baseline, $line-height-multiplier: 1.5) {
+  line-height: $baseline * $line-height-multiplier; // Set line height based on baseline
+  margin-top: calc((#{$baseline} - line-height) + #{$baseline}); // Top margin for rhythm
+  margin-bottom: $baseline; // Bottom margin to maintain rhythm
+}
+
+// -------------------------------------------
+// Mixin: modular-scale
+// Description: Scales typography according to a modular scale. Larger elements
+// have larger ratios compared to smaller ones.
+// Parameters:
+// - $font-size: Base font size for the element
+// - $ratio: Ratio to scale font size for modular scale (default: 1.2)
+// -------------------------------------------
+@mixin modular-scale($font-size, $ratio: 1.2) {
+  font-size: $font-size;
+  font-size: $font-size * $ratio; // Adjust font size using modular scale
+}
+
+// -------------------------------------------
+// Mixin: fluid-type
+// Description: Combines fluid typography and vertical rhythm into one mixin
+// for easy usage. It ensures font sizes scale fluidly and vertical rhythm
+// is maintained across all viewport widths.
+// Parameters:
+// - $min-vw: Minimum viewport width for scaling to start
+// - $max-vw: Maximum viewport width for scaling to end
+// - $min-font-size: Font size at minimum viewport width
+// - $max-font-size: Font size at maximum viewport width
+// - $baseline: The baseline spacing value
+// - $line-height-multiplier: Multiplier to adjust line height (default: 1.5)
+// -------------------------------------------
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size, $baseline, $line-height-multiplier: 1.5) {
+  @include fluid-font-size($min-vw, $max-vw, $min-font-size, $max-font-size);
+  @include fluid-vertical-rhythm($baseline, $line-height-multiplier);
+}
