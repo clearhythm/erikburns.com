@@ -1,3 +1,10 @@
 [build]
-  command = "npm run build:css && npx @11ty/eleventy"
+  command = "npm run build"
+  publish = "dist"
+
+[dev]
+  framework = "#custom"
+  command = "npm run watch"
+  targetPort = 8080
+  autoLaunch = false
   publish = "dist"

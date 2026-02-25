@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: 1rem 1.5rem;
+  padding: 2rem 1.5rem;
   background-color: transparent;
   box-shadow: none;
   transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
@@ -24,15 +24,18 @@
 }
 
 .navbar-brand {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #333;
+  font-family: $font-body;
+  font-size: 3.2rem;
+  font-weight: 500;
+  color: $color-text;
   text-decoration: none;
-  margin: 0;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.01em;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
 
-  &:hover { text-decoration: none; }
+  &:hover { text-decoration: none; opacity: 0.7; }
 
   html[data-theme="dark"] & {
     color: $dark-color-text;
