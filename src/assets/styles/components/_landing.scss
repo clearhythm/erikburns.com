@@ -161,42 +161,64 @@
 
 // Sections
 .section {
-  padding: $space-2xl 0;
+  padding: 4rem 0 7rem;
   scroll-margin-top: 80px;
-  background: #2a1265;
-  color: rgba(255, 255, 255, 0.85);
+  background: #ffffff;
+  color: $color-text-muted;
 
-  // Alternating band — slightly lighter, more vibrant purple
   &:nth-child(even) {
-    background: #3a1a7a;
+    background: #f7f5ff;
+  }
+
+  html[data-theme="dark"] & {
+    background: #0d0d18;
+    color: $dark-color-text;
+
+    &:nth-child(even) {
+      background: #11101f;
+    }
   }
 }
 
+// Section label — primary blue on light, light blue on dark
 .section-label {
   font-family: $font-body;
   font-size: $font-size-sm;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #93c5fd;
+  color: $color-primary;
   margin-bottom: $space-sm;
+
+  html[data-theme="dark"] & {
+    color: #93c5fd;
+  }
 }
 
+// Section title — expressive purple on light, light on dark
 .section-title {
   font-family: $font-heading;
   font-size: $font-size-3xl;
   font-weight: 400;
   margin-bottom: $space-lg;
   line-height: 1.2;
-  color: #fff;
+  color: $color-text;
+
+  html[data-theme="dark"] & {
+    color: $dark-color-text;
+  }
 }
 
 .section-intro {
   font-size: $font-size-lg;
-  color: rgba(255, 255, 255, 0.55);
+  color: $color-text-muted;
   max-width: 600px;
   margin-bottom: $space-xl;
   line-height: 1.7;
+
+  html[data-theme="dark"] & {
+    color: $dark-color-text-muted;
+  }
 }
 
 // Arc / prose section
@@ -205,7 +227,11 @@
     font-size: $font-size-lg;
     line-height: 1.8;
     margin-bottom: $space-lg;
-    color: rgba(255, 255, 255, 0.82);
+    color: $color-text-muted;
+
+    html[data-theme="dark"] & {
+      color: $dark-color-text;
+    }
   }
 
   p:last-child {
@@ -215,13 +241,18 @@
 
 // Work cards
 .work-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: $color-bg-muted;
+  border: 1px solid $color-border;
   border-radius: 12px;
   padding: $space-xl;
   margin-bottom: $space-lg;
 
   &:last-child { margin-bottom: 0; }
+
+  html[data-theme="dark"] & {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
 }
 
 .work-card-header {
@@ -233,15 +264,24 @@
   font-size: $font-size-2xl;
   font-weight: 400;
   margin-bottom: $space-xs;
+  color: $color-text;
+
+  html[data-theme="dark"] & {
+    color: $dark-color-text;
+  }
 }
 
 .work-role {
   font-size: $font-size-sm;
-  color: rgba(255, 255, 255, 0.45);
+  color: $color-text-muted;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 0;
+
+  html[data-theme="dark"] & {
+    color: $dark-color-text-muted;
+  }
 }
 
 .work-body {
@@ -256,7 +296,11 @@
 .work-description {
   p {
     line-height: 1.75;
-    color: rgba(255, 255, 255, 0.82);
+    color: $color-text-muted;
+
+    html[data-theme="dark"] & {
+      color: $dark-color-text;
+    }
   }
 }
 
@@ -265,7 +309,7 @@
     font-family: $font-body;
     font-size: $font-size-sm;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.45);
+    color: $color-text-muted;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     margin-bottom: $space-sm;
@@ -282,8 +326,8 @@
     padding: $space-xs 0 $space-xs $space-md;
     position: relative;
     font-size: $font-size-sm;
-    color: rgba(255, 255, 255, 0.55);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    color: $color-text-muted;
+    border-bottom: 1px solid $color-border;
 
     &:last-child { border-bottom: none; }
 
@@ -291,8 +335,113 @@
       content: "→";
       position: absolute;
       left: 0;
-      color: #93c5fd;
+      color: $color-primary;
     }
+
+    html[data-theme="dark"] & {
+      color: $dark-color-text-muted;
+      border-bottom-color: rgba(255, 255, 255, 0.08);
+
+      &::before {
+        color: #93c5fd;
+      }
+    }
+  }
+}
+
+// Work card with screenshot
+.work-card-media {
+  margin-bottom: $space-md;
+
+  @media (min-width: $breakpoint-lg) {
+    margin-bottom: 0;
+  }
+}
+
+.work-card-screenshot {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid $color-border;
+  display: block;
+  object-fit: cover;
+  object-position: top;
+  max-height: 280px;
+
+  html[data-theme="dark"] & {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+// Work body: when a screenshot is present, use a 3-column grid (media + content)
+.work-card.has-screenshot {
+  .work-body {
+    @media (min-width: $breakpoint-lg) {
+      grid-template-columns: 1fr 2fr;
+    }
+  }
+}
+
+.work-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  font-size: $font-size-sm;
+  font-weight: 500;
+  color: $color-primary;
+  text-decoration: none;
+  margin-top: $space-md;
+
+  &::after { content: " ↗"; }
+  &:hover { text-decoration: underline; }
+
+  html[data-theme="dark"] & {
+    color: #93c5fd;
+  }
+}
+
+// How I Think — principles grid
+.principles-grid {
+  display: grid;
+  gap: $space-lg;
+  margin-top: $space-xl;
+
+  @media (min-width: $breakpoint-md) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.principle {
+  padding: $space-lg;
+  border-left: 3px solid $color-text;
+  background: rgba(91, 33, 182, 0.04);
+  border-radius: 0 8px 8px 0;
+
+  html[data-theme="dark"] & {
+    border-left-color: #7c3aed;
+    background: rgba(124, 58, 237, 0.08);
+  }
+}
+
+.principle-title {
+  font-family: $font-heading;
+  font-size: $font-size-xl;
+  font-weight: 400;
+  color: $color-text;
+  margin-bottom: $space-sm;
+
+  html[data-theme="dark"] & {
+    color: $dark-color-text;
+  }
+}
+
+.principle-body {
+  font-size: $font-size-base;
+  line-height: 1.7;
+  color: $color-text-muted;
+  margin: 0;
+
+  html[data-theme="dark"] & {
+    color: $dark-color-text-muted;
   }
 }
 
@@ -305,7 +454,7 @@
 
 .writing-item {
   padding: $space-md 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid $color-border;
 
   &:last-child { border-bottom: none; }
 
@@ -313,15 +462,23 @@
     font-family: $font-heading;
     font-size: $font-size-xl;
     font-weight: 400;
-    color: #fff;
+    color: $color-text;
+
+    html[data-theme="dark"] & {
+      color: $dark-color-text;
+    }
   }
 }
 
 .writing-meta {
   font-size: $font-size-sm;
-  color: rgba(255, 255, 255, 0.45);
+  color: $color-text-muted;
   margin-top: $space-xs;
   margin-bottom: 0;
+
+  html[data-theme="dark"] & {
+    color: $dark-color-text-muted;
+  }
 }
 
 // Elsewhere links
@@ -343,10 +500,14 @@
 .elsewhere-label {
   font-size: $font-size-sm;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.45);
+  color: $color-text-muted;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   min-width: 100px;
+
+  html[data-theme="dark"] & {
+    color: $dark-color-text-muted;
+  }
 }
 
 .elsewhere-link {
