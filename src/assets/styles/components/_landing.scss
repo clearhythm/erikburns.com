@@ -125,6 +125,13 @@
   gap: $space-md;
   justify-content: center;
   flex-wrap: wrap;
+
+  @media (max-width: $breakpoint-sm) {
+    .btn {
+      width: 260px;
+      text-align: center;
+    }
+  }
 }
 
 .hero-scroll {
@@ -622,9 +629,9 @@
 }
 
 .principle-title {
-  font-family: $font-heading;
+  font-family: $font-body;
   font-size: $font-size-xl;
-  font-weight: 400;
+  font-weight: 600;
   color: $color-text;
   margin-bottom: $space-sm;
 
@@ -715,23 +722,67 @@
 
 // Hero proof strip
 .hero-proof {
+  position: absolute;
+  bottom: 118px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem 0.75rem;
-  margin-top: $space-xl;
-  font-size: $font-size-sm;
+  gap: 0;
+  white-space: nowrap;
+  font-family: $font-body;
+  font-size: 0.72rem;
+  font-weight: 400;
   color: $color-text-muted;
   letter-spacing: 0.01em;
+
+  .sep {
+    padding: 0 0.4rem;
+    opacity: 0.4;
+  }
+
+  [data-word] {
+    position: relative;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: color 0.4s ease;
+    z-index: 1;
+
+    &:hover {
+      color: rgba(109, 40, 217, 0.75);
+    }
+  }
+
+  [data-word].active {
+    color: rgba(109, 40, 217, 0.85);
+    font-weight: 500;
+  }
 
   html[data-theme="dark"] & {
     color: $dark-color-text-muted;
   }
+
+  html[data-theme="dark"] & [data-word].active {
+    color: rgba(196, 181, 253, 0.9);
+  }
 }
 
-.hero-proof-sep {
-  opacity: 0.4;
+.hero-proof-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 999px;
+  background: rgba(109, 40, 217, 0.08);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+
+  html[data-theme="dark"] & {
+    background: rgba(196, 181, 253, 0.1);
+  }
 }
 
 // Arc — interactive timeline

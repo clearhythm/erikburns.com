@@ -8,6 +8,27 @@ window.addEventListener('scroll', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.btn').forEach(btn => {
+    function spawnRipple(clientX, clientY, el) {
+      const ripple = document.createElement('span');
+      ripple.classList.add('ripple');
+      const rect = el.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = (clientX - rect.left - size / 2) + 'px';
+      ripple.style.top = (clientY - rect.top - size / 2) + 'px';
+      el.appendChild(ripple);
+      ripple.addEventListener('animationend', () => ripple.remove());
+    }
+    btn.addEventListener('mouseenter', function(e) {
+      spawnRipple(e.clientX, e.clientY, this);
+    });
+    btn.addEventListener('touchstart', function(e) {
+      const touch = e.touches[0];
+      spawnRipple(touch.clientX, touch.clientY, this);
+    }, { passive: true });
+  });
+
   const toggle = document.getElementById('sidemenu-toggle');
   const menuLinks = document.querySelectorAll('.sidemenu-main a');
 
