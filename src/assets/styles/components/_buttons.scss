@@ -1,6 +1,6 @@
 .btn {
   display: inline-block;
-  padding: $space-sm $space-lg;
+  padding: 0.75rem 2rem;
   font-family: $font-body;
   font-size: $font-size-base;
   font-weight: 500;
@@ -19,11 +19,11 @@
 }
 
 .btn-primary {
-  background-color: $color-primary;
+  background-color: #7c3aed;
   color: white;
 
   &:hover {
-    background-color: $color-primary-dark;
+    background-color: #6d28d9;
   }
 }
 

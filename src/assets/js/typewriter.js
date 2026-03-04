@@ -1,21 +1,31 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const el = document.querySelector('.cycle-word');
-  if (!el) return;
+  const wordEl = document.querySelector('.cycle-word');
+  if (!wordEl) return;
 
-  const words = ['Wellness', 'Growth', 'Productivity'];
+  const words = ['Science', 'Behavior', 'Systems'];
   let index = 0;
+
+  // Entrance: span starts blurred in HTML, remove class to animate in
+  requestAnimationFrame(function() {
+    requestAnimationFrame(function() {
+      wordEl.classList.remove('cycle-blur');
+    });
+  });
 
   function next() {
     index = (index + 1) % words.length;
 
-    el.classList.add('cycle-blur');
+    wordEl.classList.add('cycle-blur');
 
     setTimeout(function() {
-      el.textContent = words[index];
-      el.offsetHeight; // force reflow before removing class
-      el.classList.remove('cycle-blur');
+      wordEl.textContent = words[index];
+      wordEl.offsetHeight; // force reflow
+      wordEl.classList.remove('cycle-blur');
     }, 730);
   }
 
-  setInterval(next, 7000);
+  // Start cycling after entrance transition completes
+  setTimeout(function() {
+    setInterval(next, 7000);
+  }, 1500);
 });

@@ -6,40 +6,50 @@
   z-index: 1000;
   padding: 2rem 1.5rem;
   background-color: transparent;
+  border-bottom: 1px solid transparent;
   box-shadow: none;
-  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
 .navbar.active {
-  background-color: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-
-  html[data-theme="dark"] & {
-    background-color: $dark-color-bg;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-  }
+  background-color: #ffffff;
+  border-bottom-color: $color-border;
 }
 
 .navbar-brand {
   font-family: $font-body;
-  font-size: 3.2rem;
+  font-size: 1.5rem;
   font-weight: 500;
-  color: $color-text;
+  color: #111;
   text-decoration: none;
   letter-spacing: -0.01em;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.2s ease-in-out;
+
+  @media (min-width: $breakpoint-md) {
+    font-size: 1.8rem;
+  }
 
   &:hover { text-decoration: none; opacity: 0.7; }
+}
 
-  html[data-theme="dark"] & {
-    color: $dark-color-text;
-  }
+.navbar-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  flex-shrink: 0;
 }
 
 // Hamburger toggle

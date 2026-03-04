@@ -1,7 +1,7 @@
 html {
   min-height: 100vh;
   scroll-behavior: smooth;
-  background: linear-gradient(to bottom, #EBEDFD, #FDFCF3 70%, #B5DAFF);
+  background: #f7f9fc;
   transition: background 0.3s ease;
 
   &[data-theme="dark"] {
