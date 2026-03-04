@@ -2,7 +2,7 @@
   const container = document.querySelector('.hero-bars');
   if (!container) return;
 
-  const barW = 50, gap = 0;
+  const barW = 50;
   const colors = [
     '#5b21b6','#6d28d9','#7c3aed','#8b5cf6','#a78bfa',
     '#6366f1','#4f46e5','#2563eb','#1d4ed8','#0369a1',
@@ -10,7 +10,6 @@
   ];
 
   const count = Math.ceil(window.innerWidth / barW) + 2;
-
   const fragment = document.createDocumentFragment();
 
   for (let i = 0; i < count; i++) {

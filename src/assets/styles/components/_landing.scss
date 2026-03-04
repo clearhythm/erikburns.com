@@ -32,7 +32,7 @@
   justify-content: center;
   padding: $space-2xl $space-md;
   text-align: center;
-  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 75%, #f5f0fd 100%);
+  background: linear-gradient(to bottom, #e8f2fd 0%, #ffffff 50%, #f7f3fe 100%);
   position: relative;
   overflow: hidden;
 }
@@ -737,51 +737,15 @@
   font-weight: 400;
   color: $color-text-muted;
   letter-spacing: 0.01em;
+  z-index: 2;
 
   .sep {
     padding: 0 0.4rem;
     opacity: 0.4;
   }
 
-  [data-word] {
-    position: relative;
-    padding: 0.2rem 0.6rem;
-    border-radius: 999px;
-    cursor: pointer;
-    transition: color 0.4s ease;
-    z-index: 1;
-
-    &:hover {
-      color: rgba(109, 40, 217, 0.75);
-    }
-  }
-
-  [data-word].active {
-    color: rgba(109, 40, 217, 0.85);
-    font-weight: 500;
-  }
-
   html[data-theme="dark"] & {
     color: $dark-color-text-muted;
-  }
-
-  html[data-theme="dark"] & [data-word].active {
-    color: rgba(196, 181, 253, 0.9);
-  }
-}
-
-.hero-proof-frame {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  border-radius: 999px;
-  background: rgba(109, 40, 217, 0.08);
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  pointer-events: none;
-
-  html[data-theme="dark"] & {
-    background: rgba(196, 181, 253, 0.1);
   }
 }
 
@@ -923,6 +887,256 @@
   margin: 0;
 
   html[data-theme="dark"] & { color: $dark-color-text-muted; }
+}
+
+// Featured project (sample project section)
+.featured-project {
+  background: $color-bg-muted;
+  border: 1px solid $color-border;
+  border-radius: 12px;
+  padding: $space-xl;
+  max-width: 720px;
+
+  html[data-theme="dark"] & {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+}
+
+.featured-project-meta {
+  margin-bottom: $space-lg;
+}
+
+.featured-project-name {
+  font-family: $font-body;
+  font-size: $font-size-2xl;
+  font-weight: 600;
+  color: $color-text;
+  margin-bottom: $space-xs;
+
+  html[data-theme="dark"] & {
+    color: $dark-color-text;
+  }
+}
+
+.featured-project-tagline {
+  font-size: $font-size-base;
+  color: $color-text-muted;
+  margin: 0;
+
+  html[data-theme="dark"] & {
+    color: $dark-color-text-muted;
+  }
+}
+
+.featured-project-desc {
+  font-size: $font-size-lg;
+  line-height: 1.75;
+  color: $color-text-muted;
+  margin-bottom: $space-xl;
+
+  html[data-theme="dark"] & {
+    color: $dark-color-text-muted;
+  }
+}
+
+.featured-project-stats {
+  display: flex;
+  gap: $space-xl;
+  flex-wrap: wrap;
+  margin-bottom: $space-xl;
+  padding: $space-lg 0;
+  border-top: 1px solid $color-border;
+  border-bottom: 1px solid $color-border;
+
+  html[data-theme="dark"] & {
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+}
+
+.featured-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.featured-stat-num {
+  font-family: $font-body;
+  font-size: $font-size-2xl;
+  font-weight: 700;
+  color: $color-text;
+  line-height: 1;
+
+  html[data-theme="dark"] & {
+    color: $dark-color-text;
+  }
+}
+
+.featured-stat-label {
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+
+  html[data-theme="dark"] & {
+    color: $dark-color-text-muted;
+  }
+}
+
+// Case study page
+.case-study-hero {
+  padding: 6rem 0 3rem;
+  background: linear-gradient(to bottom, #f0ebfd, #ffffff);
+
+  html[data-theme="dark"] & {
+    background: linear-gradient(to bottom, #1a1030, #0d0d18);
+  }
+}
+
+.case-study-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: $font-size-sm;
+  font-weight: 500;
+  color: $color-text-muted;
+  text-decoration: none;
+  margin-bottom: $space-xl;
+  transition: color 0.2s;
+
+  &:hover {
+    color: $color-primary;
+    text-decoration: none;
+  }
+
+  html[data-theme="dark"] & {
+    color: $dark-color-text-muted;
+    &:hover { color: #93c5fd; }
+  }
+}
+
+.case-study-title {
+  font-family: $font-heading;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 400;
+  color: $color-text;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: $space-md;
+
+  html[data-theme="dark"] & {
+    color: $dark-color-text;
+  }
+}
+
+.case-study-subtitle {
+  font-size: $font-size-xl;
+  color: $color-text-muted;
+  line-height: 1.65;
+  max-width: 600px;
+  margin-bottom: $space-xl;
+
+  html[data-theme="dark"] & {
+    color: $dark-color-text-muted;
+  }
+}
+
+.case-study-stats {
+  display: flex;
+  gap: $space-2xl;
+  flex-wrap: wrap;
+  padding: $space-xl 0;
+  border-top: 1px solid $color-border;
+
+  html[data-theme="dark"] & {
+    border-color: $dark-color-border;
+  }
+}
+
+.case-study-body {
+  max-width: 680px;
+
+  h2 {
+    font-family: $font-body;
+    font-size: $font-size-2xl;
+    font-weight: 600;
+    color: $color-text;
+    margin-top: $space-3xl;
+    margin-bottom: $space-md;
+
+    html[data-theme="dark"] & {
+      color: $dark-color-text;
+    }
+  }
+
+  h3 {
+    font-family: $font-body;
+    font-size: $font-size-xl;
+    font-weight: 600;
+    color: $color-text;
+    margin-top: $space-xl;
+    margin-bottom: $space-sm;
+
+    html[data-theme="dark"] & {
+      color: $dark-color-text;
+    }
+  }
+
+  p {
+    font-size: $font-size-lg;
+    line-height: 1.8;
+    color: $color-text-muted;
+    margin-bottom: $space-lg;
+
+    html[data-theme="dark"] & {
+      color: $dark-color-text-muted;
+    }
+  }
+
+  ul {
+    margin-left: $space-lg;
+    margin-bottom: $space-lg;
+
+    li {
+      font-size: $font-size-lg;
+      line-height: 1.75;
+      color: $color-text-muted;
+      margin-bottom: $space-sm;
+
+      html[data-theme="dark"] & {
+        color: $dark-color-text-muted;
+      }
+    }
+  }
+}
+
+.case-study-callout {
+  background: rgba(124, 58, 237, 0.06);
+  border-left: 3px solid #7c3aed;
+  border-radius: 0 8px 8px 0;
+  padding: $space-lg $space-xl;
+  margin: $space-xl 0;
+
+  p {
+    margin: 0;
+    font-style: italic;
+  }
+
+  html[data-theme="dark"] & {
+    background: rgba(124, 58, 237, 0.1);
+    border-left-color: #a78bfa;
+  }
+}
+
+.case-study-footer {
+  padding: $space-3xl 0;
+  border-top: 1px solid $color-border;
+  margin-top: $space-3xl;
+
+  html[data-theme="dark"] & {
+    border-color: $dark-color-border;
+  }
 }
 
 // Podcast featured callout

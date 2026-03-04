@@ -1,0 +1,210 @@
+---
+layout: base.njk
+title: Healify — Case Study · Erik Burns
+description: How I built a behavioral health platform, left to practice as a somatic therapist, and rebuilt it grounded in what I learned treating 100+ patients.
+---
+
+<div class="case-study-hero">
+  <div class="container">
+    <a href="/#work" class="case-study-back">← Back</a>
+    <h1 class="case-study-title">Healify</h1>
+    <p class="case-study-subtitle">
+      How I built a behavioral health platform, left to practice as a somatic therapist,
+      and rebuilt it grounded in what I learned treating over a hundred patients.
+    </p>
+    <div class="case-study-stats">
+      <div class="featured-stat">
+        <span class="featured-stat-num">1M+</span>
+        <span class="featured-stat-label">mood assessments</span>
+      </div>
+      <div class="featured-stat">
+        <span class="featured-stat-num">260%</span>
+        <span class="featured-stat-label">client satisfaction lift</span>
+      </div>
+      <div class="featured-stat">
+        <span class="featured-stat-num">100+</span>
+        <span class="featured-stat-label">patients treated clinically</span>
+      </div>
+      <div class="featured-stat">
+        <span class="featured-stat-num">2020</span>
+        <span class="featured-stat-label">founded · rebuilt 2025</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="case-study-body">
+
+      <h2>The Problem</h2>
+      <p>
+        Therapists and clients share a fundamental problem: they have almost no shared
+        visibility into whether therapy is working. Sessions happen in rooms. Notes
+        stay in charts. Progress — or the absence of it — lives only in memory
+        and subjective impression.
+      </p>
+      <p>
+        This isn't a minor inconvenience. Research consistently shows that patients who
+        track their own outcomes during treatment have better results — not because
+        tracking is curative, but because it creates a feedback loop between session
+        and daily life. When clients can see their own patterns, and therapists can
+        see them too, something changes.
+      </p>
+      <p>
+        The problem wasn't awareness. The tools didn't exist. Paper mood logs are
+        compliance nightmares. Generic apps aren't built for therapeutic relationships.
+        The shared visibility layer — the thing that could close the loop between
+        session and daily life — didn't exist.
+      </p>
+
+      <h2>What I Built</h2>
+      <p>
+        Healify is a behavioral health platform built around one idea: therapist and
+        client should be able to look at the same data together. A client logs their
+        mood, energy, sleep, and context daily — not as a journaling exercise, but as
+        a structured signal. The therapist sees that data, over time, in the session.
+      </p>
+      <p>
+        The data model was designed from the start as user-partitioned and
+        privacy-first. Clients own their data. Therapists access it through an explicit
+        sharing relationship. Nothing moves without consent; nothing persists beyond
+        its intended scope. The privacy architecture wasn't an afterthought — it was
+        the reason clients would use it at all.
+      </p>
+      <p>
+        Over time, the platform scaled to deliver over one million mood assessments.
+        Clients who used it consistently reported a 260% increase in satisfaction
+        with their therapeutic relationships. That number surprised me. I expected
+        a compliance lift. I didn't expect it to affect the relationship itself.
+      </p>
+
+      <div class="case-study-callout">
+        <p>
+          "Clients who used Healify consistently reported a 260% increase in satisfaction
+          with their therapeutic relationship. I expected better compliance. I didn't
+          expect it to affect the relationship itself."
+        </p>
+      </div>
+
+      <h2>The Turn</h2>
+      <p>
+        In 2023, I made a decision that felt strange at the time: I stepped away from
+        the product to practice as a somatic therapist. Not to research users. Not to
+        run a discovery sprint. To actually treat people — chronic pain, anxiety, trauma
+        — using hypnotherapy and nervous system regulation techniques.
+      </p>
+      <p>
+        I treated over a hundred patients over the following year. And I learned things
+        that no user research method had taught me.
+      </p>
+      <p>
+        The first thing I learned: resistance isn't a design problem. When a client
+        doesn't log their mood, or cancels their session, or agrees to something in
+        the room and then doesn't do it — that's not a UX failure. That's the body
+        doing exactly what bodies do. The nervous system protects. It avoids. It
+        rationalizes. No amount of notification design changes that.
+      </p>
+      <p>
+        The second thing I learned: the therapeutic relationship is the intervention.
+        The data, the assessments, the tools — they're scaffolding. What actually
+        moves people is feeling seen, over time, by someone who knows their patterns
+        better than they do. That's what the shared data creates. Not measurement
+        for its own sake, but context for the relationship.
+      </p>
+      <p>
+        The third thing: most digital health tools are built around the model of
+        individual behavior change. Do the thing. Track the thing. Get the reward.
+        That model works for simple habits. It breaks down completely for anything
+        involving the nervous system, trauma, or chronic pain — because the loop
+        isn't behavioral. It's relational.
+      </p>
+
+      <h2>The Rebuild</h2>
+      <p>
+        In 2025, I rebuilt Healify from scratch. Not a redesign — a rethink of what
+        the product was for.
+      </p>
+      <p>
+        The original platform was built around measurement. The rebuild is built around
+        the therapeutic relationship. The difference sounds subtle. It isn't.
+      </p>
+      <p>
+        Key changes in the 2025 version:
+      </p>
+      <ul>
+        <li>
+          <strong>Assessment is contextual, not scheduled.</strong> The original Healify
+          sent daily reminders. The rebuild surfaces check-ins at moments of relevance —
+          after a session, during a reported rough patch, at a cadence set by the therapist
+          for each client individually.
+        </li>
+        <li>
+          <strong>Therapist-side tooling is first-class.</strong> The original product was
+          client-facing with a thin dashboard for therapists. The rebuild inverts this:
+          the therapist's view is the primary surface. Client data is presented in the
+          context of the relationship arc, not as a raw feed.
+        </li>
+        <li>
+          <strong>Pattern recognition over point-in-time data.</strong> Single mood scores
+          mean almost nothing. Patterns — across weeks, across contexts, across sessions —
+          mean everything. The platform now surfaces those patterns explicitly, in language
+          a therapist can use in session.
+        </li>
+        <li>
+          <strong>Privacy architecture hardened.</strong> The 2025 rebuild uses a
+          fully user-partitioned Firestore model with explicit scope-limited access
+          tokens for each therapist-client pair. Data doesn't aggregate across
+          relationships. Nothing is retained after the relationship ends without
+          explicit client action.
+        </li>
+      </ul>
+
+      <h2>Technical Architecture</h2>
+      <p>
+        Healify is built on Google Firestore with a user-partitioned data model —
+        every client's data lives in their own namespace, and therapist access is
+        scoped to specific sharing tokens. The frontend is a progressive web app
+        with offline support for mood logging in low-connectivity environments.
+      </p>
+      <p>
+        The 2025 rebuild introduced a pattern-analysis layer using the Claude API.
+        After a sufficient data window, the system generates natural-language
+        summaries of client patterns — flagging anomalies, surfacing recurring
+        themes, and highlighting changes in baseline. These summaries go to the
+        therapist, not the client. The therapist decides what to do with them.
+      </p>
+      <p>
+        That design decision — AI-assisted pattern recognition delivered to the
+        practitioner, not the patient — came directly from clinical experience.
+        Patients who receive algorithmic assessments of their own mental state
+        frequently anchor to them in unhelpful ways. Therapists can contextualize.
+        They can decide when the pattern insight is useful and when it's a distraction.
+      </p>
+
+      <h2>What I'd Do Differently</h2>
+      <p>
+        I would have practiced clinically before building the first version.
+        Not as a research method — as a prerequisite. You can do all the user
+        interviews you want. You cannot replicate the understanding that comes
+        from sitting with someone in acute distress, watching how they move
+        between insight and avoidance, and learning where the leverage actually is.
+      </p>
+      <p>
+        The first version of Healify was a well-designed product that solved a
+        real problem. The second version is a tool I would actually give to my
+        own patients. That difference came entirely from clinical practice.
+        It did not come from the product work.
+      </p>
+
+    </div>
+
+    <div class="case-study-footer">
+      <p class="section-intro">Healify is live at <a href="https://healifyapp.com" target="_blank" rel="noopener">healifyapp.com</a>.</p>
+      <div class="hero-cta">
+        <a href="https://healifyapp.com" class="btn btn-primary" target="_blank" rel="noopener">View Healify</a>
+        <a href="mailto:erik@erikburns.com" class="btn btn-ghost">Get in Touch</a>
+      </div>
+    </div>
+  </div>
+</section>
