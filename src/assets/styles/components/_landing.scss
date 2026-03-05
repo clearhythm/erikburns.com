@@ -26,15 +26,13 @@
 
 .hero {
   min-height: 100svh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: $space-2xl $space-md;
+  align-items: stretch;
   text-align: center;
-  background: linear-gradient(to bottom, #e8f2fd 0%, #ffffff 50%, #f7f3fe 100%);
+  background: linear-gradient(to bottom, #f0f4ff 0%, #ffffff 80%);
   position: relative;
-  overflow: hidden;
 }
 
 // Animated bars at the foot of the hero
@@ -62,7 +60,72 @@
 }
 
 .hero-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10rem $space-2xl $space-xl;
   position: relative;
+  z-index: 1;
+
+  @media (max-width: $breakpoint-sm) {
+    padding-top: 5rem;
+  }
+}
+
+// Lotus petal motif — last flex child, always mathematically flush to hero bottom
+.hero-petals {
+  flex-shrink: 0;
+  align-self: stretch; // full width despite hero's align-items: center
+  height: clamp(50px, 14dvw, 168px);
+  // height: 162px;
+  pointer-events: none;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 200'%3E%3Cpath d='M-100,200 Q0,100 100,200 Q200,100 300,200 Q400,100 500,200 Q600,100 700,200 Q800,100 900,200 Q1000,100 1100,200 Q1200,100 1300,200 Q1400,100 1500,200 Z' fill='rgba(162,125,248,0.32)'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 200'%3E%3Cpath d='M-150,200 Q0,60 150,200 Q300,60 450,200 Q600,60 750,200 Q900,60 1050,200 Q1200,60 1350,200 Q1500,60 1650,200 Z' fill='rgba(138,108,225,0.22)'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 200'%3E%3Cpath d='M0,200 Q200,20 400,200 Q600,20 800,200 Q1000,20 1200,200 Q1400,20 1600,200 Z' fill='rgba(115,88,200,0.15)'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+  @media (max-width: $breakpoint-sm) {
+    height: clamp(50px, 10dvw, 168px); // dvh-proportional: arches scale with viewport height
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 200'%3E%3Cpath d='M-240,200 Q0,100 240,200 Q480,100 720,200 Q960,100 1200,200 Q1440,100 1680,200 Z' fill='rgba(162,125,248,0.32)'/%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 200'%3E%3Cpath d='M-360,200 Q0,60 360,200 Q720,60 1080,200 Q1440,60 1800,200 Z' fill='rgba(138,108,225,0.22)'/%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 200'%3E%3Cpath d='M-480,200 Q0,20 480,200 Q960,20 1440,200 Q1920,20 2400,200 Z' fill='rgba(115,88,200,0.15)'/%3E%3C/svg%3E");
+  }
+}
+
+.hero-mark-wrap {
+  position: relative;
+  display: block;
+  width: 190px;
+  max-width: 42vw;
+  margin: 0 auto $space-md;
+
+  @media (max-width: $breakpoint-sm) {
+    width: 120px;
+    max-width: 38vw;
+    margin-top: $space-2xl;
+    margin-bottom: $space-sm;
+  }
+}
+
+.hero-mark {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+  pointer-events: none;
+}
+
+.lotus-sparks-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
 .hero-headshot {
@@ -156,38 +219,124 @@
   }
 }
 
-// Sections
+// Sections — always dark regardless of theme
 .section {
   padding: 3.5rem 0 4rem;
   margin-top: 0;
   scroll-margin-top: 80px;
-  background: #ffffff;
-  color: $color-text-muted;
+  background: #0f172a;
+  color: $dark-color-text-muted;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
 
   @media (min-width: $breakpoint-md) {
     padding: 4rem 0 5.5rem;
   }
-
-  html[data-theme="dark"] & {
-    background: #0d0d18;
-    color: $dark-color-text;
-  }
 }
 
 .section:nth-child(odd) {
-  background: linear-gradient(to bottom, #eaf4ff, #ffffff);
-
-  html[data-theme="dark"] & {
-    background: linear-gradient(to bottom, #0f1a2e, #0d0d18);
-  }
+  background: #1e293b;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 .section:nth-child(even) {
-  background: linear-gradient(to bottom, #f0ebfd, #ffffff);
+  background: #0f172a;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
 
-  html[data-theme="dark"] & {
-    background: linear-gradient(to bottom, #1a1030, #0d0d18);
+// Force dark child styles inside all sections
+.section {
+  .section-title    { color: $dark-color-text; }
+  .section-intro    { color: $dark-color-text-muted; }
+  .section-label    { color: #93c5fd; }
+
+  // Principles
+  .principle {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.08);
   }
+  .principle-number {
+    border-color: rgba(167, 139, 250, 0.4);
+    color: #a78bfa;
+  }
+  .principle-title  { color: $dark-color-text; }
+  .principle-body   { color: $dark-color-text-muted; }
+
+  // Arc timeline
+  .arc-step {
+    border-color: rgba(167, 139, 250, 0.15);
+    background: transparent;
+    &:hover  { background: rgba(167, 139, 250, 0.06); border-color: rgba(167, 139, 250, 0.3); }
+    &.active { background: rgba(167, 139, 250, 0.10); border-color: rgba(167, 139, 250, 0.35); }
+  }
+  .arc-step-num         { color: #a78bfa; }
+  .arc-step-title       { color: $dark-color-text; }
+  .arc-step-body        { color: $dark-color-text-muted; }
+  .arc-success-label    { color: #a78bfa; }
+  .arc-success-headline { color: $dark-color-text; }
+  .arc-success-body     { color: $dark-color-text-muted; }
+
+  // Stack grid
+  .stack-item {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.08);
+    &:hover { border-color: #93c5fd; }
+  }
+  .stack-logo      { filter: invert(1); }
+  .stack-item-name { color: $dark-color-text; }
+  .stack-item-desc { color: $dark-color-text-muted; }
+
+  // Featured project
+  .featured-project {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+  .featured-project-name    { color: $dark-color-text; }
+  .featured-project-tagline { color: $dark-color-text-muted; }
+  .featured-project-desc    { color: $dark-color-text-muted; }
+  .featured-project-stats   { border-color: rgba(255, 255, 255, 0.08); }
+  .featured-stat-num        { color: $dark-color-text; }
+  .featured-stat-label      { color: $dark-color-text-muted; }
+
+  // Work cards
+  .work-card {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+  .work-name          { color: $dark-color-text; }
+  .work-role          { color: $dark-color-text-muted; }
+  .work-description p { color: $dark-color-text-muted; }
+  .work-card-link     { color: #93c5fd; }
+  .work-details {
+    h4 { color: $dark-color-text-muted; }
+    li {
+      color: $dark-color-text-muted;
+      border-bottom-color: rgba(255, 255, 255, 0.08);
+      &::before { color: #93c5fd; }
+    }
+  }
+  .screenshot-main     { border-color: rgba(255, 255, 255, 0.1); }
+  .screenshot-thumb.active { outline-color: #a78bfa; }
+
+  // Podcast callout
+  .podcast-callout {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.08);
+    &:hover { border-color: #93c5fd; }
+  }
+  .podcast-callout-eyebrow { color: #93c5fd; }
+  .podcast-callout-title   { color: $dark-color-text; }
+  .podcast-callout-desc    { color: $dark-color-text-muted; }
+
+  // Writing
+  .writing-item {
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+    a { color: $dark-color-text; }
+  }
+  .writing-meta { color: $dark-color-text-muted; }
+
+  // Elsewhere
+  .elsewhere-label { color: $dark-color-text-muted; }
+  .elsewhere-link  { color: $dark-color-text; }
 }
 
 // Section label — primary blue on light, light blue on dark
@@ -253,7 +402,7 @@
 .work-card {
   background: $color-bg-muted;
   border: 1px solid $color-border;
-  border-radius: 12px;
+  border-radius: 3px;
   padding: $space-xl;
   margin-bottom: $space-lg;
 
@@ -367,7 +516,7 @@
   max-height: 320px;
   object-fit: cover;
   object-position: top;
-  border-radius: 8px;
+  border-radius: 2px;
   display: block;
   border: 1px solid $color-border;
   margin-bottom: $space-sm;
@@ -517,7 +666,7 @@
 .stack-item {
   background: $color-bg;
   border: 1px solid $color-border;
-  border-radius: 8px;
+  border-radius: 3px;
   padding: $space-md;
   transition: border-color 0.2s, transform 0.2s;
 
@@ -597,7 +746,7 @@
 .principle {
   padding: $space-lg;
   border: 1px solid $color-border;
-  border-radius: 8px;
+  border-radius: 0;
   background: rgba(255, 255, 255, 0.85);
 
   html[data-theme="dark"] & {
@@ -612,7 +761,7 @@
   justify-content: center;
   width: 44px;
   height: 44px;
-  border-radius: 50%;
+  border-radius: 2px;
   border: 2px solid rgba(124, 58, 237, 0.35);
   background: transparent;
   color: #7c3aed;
@@ -773,7 +922,7 @@
   gap: 1rem;
   align-items: flex-start;
   padding: 0.85rem 1rem;
-  border-radius: 8px;
+  border-radius: 2px;
   cursor: pointer;
   transition: background 0.2s, border-color 0.2s;
   border: 1px solid rgba(124, 58, 237, 0.15);
@@ -804,7 +953,7 @@
 }
 
 .arc-step-num {
-  font-family: $font-body;
+  font-family: $font-mono;
   font-size: $font-size-sm;
   font-weight: 600;
   color: #7c3aed;
@@ -893,7 +1042,7 @@
 .featured-project {
   background: $color-bg-muted;
   border: 1px solid $color-border;
-  border-radius: 12px;
+  border-radius: 3px;
   padding: $space-xl;
   max-width: 720px;
 
@@ -961,7 +1110,7 @@
 }
 
 .featured-stat-num {
-  font-family: $font-body;
+  font-family: $font-mono;
   font-size: $font-size-2xl;
   font-weight: 700;
   color: $color-text;
@@ -1145,7 +1294,7 @@
   text-decoration: none;
   background: $color-bg-muted;
   border: 1px solid $color-border;
-  border-radius: 8px;
+  border-radius: 3px;
   padding: $space-xl;
   margin-bottom: $space-xl;
   transition: border-color 0.2s;

@@ -39,7 +39,21 @@
     font-size: 1.8rem;
   }
 
-  &:hover { text-decoration: none; opacity: 0.7; }
+  &:hover { text-decoration: none; }
+}
+
+.navbar-lotus {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+  opacity: 0.85;
+
+  @media (min-width: $breakpoint-md) {
+    width: 28px;
+    height: 28px;
+  }
 }
 
 .navbar-avatar {
@@ -125,7 +139,7 @@
   width: 100%;
   max-width: 600px;
   padding: 0 2rem;
-  background: linear-gradient(135deg, #4a6fa5 0%, #6a4a8c 100%);
+  background: linear-gradient(180deg, #0f172a 0%, #1e1b4b 100%);
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -184,5 +198,9 @@
 }
 
 @media (min-width: 769px) {
-  .sidemenu-left { max-width: 38%; }
+  .sidemenu-left {
+    max-width: 38%;
+    // Single concave curve on right edge — clips the panel itself so color always matches
+    clip-path: url(#sidemenu-clip);
+  }
 }

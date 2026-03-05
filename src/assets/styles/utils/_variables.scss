@@ -1,11 +1,11 @@
 // Colors
 $color-primary: #2563eb;
 $color-primary-dark: #1e40af;
-$color-text: #111111;
-$color-text-muted: #555;
-$color-bg: blue;
-$color-bg-muted: #f3f4f6;
-$color-border: #e5e7eb;
+$color-text: #0f172a;
+$color-text-muted: #475569;
+$color-bg: #ffffff;
+$color-bg-muted: #f8fafc;
+$color-border: #e2e8f0;
 
 // Dark mode
 $dark-color-text: #e5e7eb;
@@ -26,6 +26,7 @@ $space-3xl: 5rem;
 // Typography
 $font-heading: 'Copernicus', Garamond, Georgia, serif;
 $font-body: 'Poppins', Helvetica, sans-serif;
+$font-mono: 'SF Mono', 'Fira Code', ui-monospace, monospace;
 
 $font-size-sm: 0.875rem;
 $font-size-base: 1rem;

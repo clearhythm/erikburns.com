@@ -1,20 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title or "Erik Burns" }}</title>
   <meta name="description" content="{{ description or 'Product designer, hypnotherapist, and agentic AI builder. Twenty-five years shipping products, a clinical practice, and production AI systems used daily.' }}">
+  <link rel="icon" type="image/png" href="/assets/img/living-lotus-flat-tr.png">
+  <link rel="apple-touch-icon" href="/assets/img/living-lotus-flat-tr.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap">
   <link rel="stylesheet" href="/assets/styles/main.css">
-  <script>
-    (function() {
-      const saved = localStorage.getItem('theme') || 'light';
-      document.documentElement.setAttribute('data-theme', saved);
-    })();
-  </script>
 </head>
 <body>
   {% include "nav.njk" %}
@@ -34,33 +30,21 @@
     <img class="lightbox-img" src="" alt="">
   </div>
 
+  <!-- SVG clip paths (hidden) -->
+  <svg width="0" height="0" aria-hidden="true" style="position:absolute;overflow:hidden">
+    <defs>
+      <!-- Single concave curve on sidemenu right edge -->
+      <clipPath id="sidemenu-clip" clipPathUnits="objectBoundingBox">
+        <path d="M 0 0 L 1 0 Q 0.92 0.5 1 1 L 0 1 Z"/>
+      </clipPath>
+    </defs>
+  </svg>
+
   <script src="/assets/js/navigation.js"></script>
   <script src="/assets/js/typewriter.js"></script>
   <script src="/assets/js/gallery.js"></script>
   {# <script src="/assets/js/hero-bars.js"></script> #}
   <script src="/assets/js/arc.js"></script>
-  <script>
-    (function() {
-      const toggle = document.getElementById('theme-toggle');
-      const icon = document.getElementById('theme-icon');
-      const text = document.getElementById('theme-text');
-      const html = document.documentElement;
-
-      function updateToggle() {
-        const dark = html.getAttribute('data-theme') === 'dark';
-        icon.textContent = dark ? '☀️' : '🌙';
-        text.textContent = dark ? 'Light Mode' : 'Dark Mode';
-      }
-
-      toggle.addEventListener('click', () => {
-        const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        html.setAttribute('data-theme', next);
-        localStorage.setItem('theme', next);
-        updateToggle();
-      });
-
-      updateToggle();
-    })();
-  </script>
+  <script src="/assets/js/lotus-sparks.js"></script>
 </body>
 </html>
