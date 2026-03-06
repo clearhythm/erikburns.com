@@ -26,3 +26,7 @@ conf/
 *.tmp
 # Local Netlify folder
 .netlify
+
+# Environment variables (never commit)
+.env
+.env.local

@@ -3,14 +3,17 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "npx @11ty/eleventy --serve",
-    "build": "npx @11ty/eleventy",
-    "netlify:dev": "npx netlify dev"
+    "start": "npx netlify dev",
+    "watch": "npx @11ty/eleventy --serve",
+    "build": "npx @11ty/eleventy"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
     "concurrently": "^9.0.1",
     "netlify-cli": "^21.6.0",
     "sass": "^1.80.3"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.78.0"
   }
 }

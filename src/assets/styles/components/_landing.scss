@@ -255,7 +255,6 @@
     border-color: rgba(255, 255, 255, 0.08);
   }
   .principle-number {
-    border-color: rgba(167, 139, 250, 0.4);
     color: #a78bfa;
   }
   .principle-title  { color: $dark-color-text; }
@@ -761,18 +760,19 @@
   justify-content: center;
   width: 44px;
   height: 44px;
-  border-radius: 2px;
-  border: 2px solid rgba(124, 58, 237, 0.35);
-  background: transparent;
+  border: none;
+  border-radius: 0;
+  // Symmetrical leaf outline, upper-right ↗ / lower-left ↙ axis, zoomed so tips clip at edges
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='8 8 28 28'%3E%3Cpath d='M 44 0 C 44 22 22 44 0 44 C 0 22 22 0 44 0' fill='none' stroke='%237c3aed' stroke-width='1.5' stroke-opacity='0.5'/%3E%3C/svg%3E") center / contain no-repeat;
   color: #7c3aed;
   font-family: $font-body;
-  font-size: 1rem;
+  font-size: $font-size-sm;
   font-weight: 600;
   margin-bottom: $space-md;
   flex-shrink: 0;
 
   html[data-theme="dark"] & {
-    border-color: rgba(167, 139, 250, 0.4);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='8 8 28 28'%3E%3Cpath d='M 44 0 C 44 22 22 44 0 44 C 0 22 22 0 44 0' fill='none' stroke='%23a78bfa' stroke-width='1.5' stroke-opacity='0.55'/%3E%3C/svg%3E");
     color: #a78bfa;
   }
 }
@@ -1348,4 +1348,300 @@
   html[data-theme="dark"] & {
     color: $dark-color-text-muted;
   }
+}
+
+// ─── Signal widget ─────────────────────────────────────────────────────────
+
+.signal-widget {
+  display: grid;
+  gap: 2rem;
+  margin-top: $space-xl;
+
+  @media (min-width: $breakpoint-md) {
+    grid-template-columns: 260px 1fr;
+    align-items: start;
+  }
+}
+
+.signal-panel--left {
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+}
+
+.signal-panel--right {
+  display: flex;
+  flex-direction: column;
+}
+
+// Persona selector
+
+.signal-prompt {
+  font-family: $font-body;
+  font-size: $font-size-lg;
+  font-weight: 500;
+  color: $color-text;
+  margin-bottom: $space-md;
+
+  html[data-theme="dark"] & { color: $dark-color-text; }
+}
+
+.signal-personas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-sm;
+}
+
+.signal-persona-btn {
+  font-family: $font-body;
+  font-size: $font-size-base;
+  font-weight: 500;
+  color: $color-text;
+  background: transparent;
+  border: 1.5px solid $color-border;
+  border-radius: 100px;
+  padding: 0.55rem 1.25rem;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+
+  &:hover, &.is-active {
+    border-color: $color-primary;
+    background: rgba($color-primary, 0.06);
+    color: $color-primary;
+  }
+
+  &.is-active {
+    font-weight: 600;
+  }
+
+  html[data-theme="dark"] & {
+    color: $dark-color-text;
+    border-color: rgba(255, 255, 255, 0.15);
+
+    &:hover, &.is-active {
+      border-color: #a78bfa;
+      background: rgba(167, 139, 250, 0.1);
+      color: #a78bfa;
+    }
+  }
+}
+
+.signal-messages {
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+  min-height: 280px;
+  max-height: 480px;
+  overflow-y: auto;
+}
+
+.signal-empty {
+  font-size: $font-size-sm;
+  color: rgba($color-text-muted, 0.5);
+  font-style: italic;
+  margin: auto;
+  text-align: center;
+
+  html[data-theme="dark"] & { color: rgba($dark-color-text-muted, 0.4); }
+}
+
+.signal-message {
+  max-width: 88%;
+  font-size: $font-size-base;
+  line-height: 1.6;
+
+  &--user {
+    align-self: flex-end;
+    background: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.9);
+    padding: 0.6rem 1rem;
+    border-radius: 18px 18px 4px 18px;
+  }
+
+  &--assistant {
+    align-self: flex-start;
+    color: rgba(255, 255, 255, 0.82);
+    padding: 0 0 0 1rem;
+    border-left: 2px solid rgba(167, 139, 250, 0.5);
+  }
+
+  // Typing indicator
+  &--thinking {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0.25rem 0 0.25rem 1rem;
+    border-left: 2px solid rgba(167, 139, 250, 0.5);
+
+    span {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(167, 139, 250, 0.6);
+      animation: signal-dot 1.2s infinite ease-in-out;
+
+      &:nth-child(2) { animation-delay: 0.2s; }
+      &:nth-child(3) { animation-delay: 0.4s; }
+    }
+  }
+}
+
+@keyframes signal-dot {
+  0%, 80%, 100% { transform: scale(0.7); opacity: 0.4; }
+  40%            { transform: scale(1);   opacity: 1;   }
+}
+
+// Overlap score card
+
+.signal-overlap {
+  align-self: flex-start;
+  display: flex;
+  align-items: flex-start;
+  gap: $space-md;
+  background: rgba($color-primary, 0.06);
+  border: 1.5px solid rgba($color-primary, 0.2);
+  border-radius: 10px;
+  padding: $space-md;
+  max-width: 85%;
+
+  html[data-theme="dark"] & {
+    background: rgba(167, 139, 250, 0.08);
+    border-color: rgba(167, 139, 250, 0.25);
+  }
+}
+
+.signal-overlap-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.signal-overlap-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $color-primary;
+
+  html[data-theme="dark"] & { color: #a78bfa; }
+}
+
+.signal-overlap-value {
+  font-family: $font-heading;
+  font-size: 2rem;
+  font-weight: 700;
+  color: $color-primary;
+  line-height: 1;
+
+  html[data-theme="dark"] & { color: #a78bfa; }
+}
+
+.signal-overlap-denom {
+  font-size: 0.9rem;
+  font-weight: 400;
+  opacity: 0.6;
+}
+
+.signal-overlap-reason {
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  line-height: 1.55;
+  margin: 0;
+
+  html[data-theme="dark"] & { color: $dark-color-text-muted; }
+}
+
+// Form
+
+.signal-form {
+  display: flex;
+  gap: $space-sm;
+}
+
+.signal-input {
+  flex: 1;
+  font-family: $font-body;
+  font-size: $font-size-base;
+  color: $color-text-muted;
+  background: $color-bg;
+  border: 1.5px solid $color-border;
+  border-radius: 8px;
+  padding: 0.65rem 1rem;
+  outline: none;
+  transition: border-color 0.15s;
+
+  &:focus { border-color: $color-primary; }
+  &::placeholder { color: rgba($color-text-muted, 0.5); }
+  &:disabled { opacity: 0.5; }
+
+  html[data-theme="dark"] & {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.12);
+    color: $dark-color-text-muted;
+
+    &:focus { border-color: #a78bfa; }
+  }
+}
+
+.signal-send {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  background: $color-primary;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.15s;
+
+  &:hover { opacity: 0.85; }
+  &:disabled { opacity: 0.4; cursor: default; }
+}
+
+.signal-footer {
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  margin: 0;
+
+  a { color: $color-primary; }
+
+  html[data-theme="dark"] & {
+    color: $dark-color-text-muted;
+    a { color: #a78bfa; }
+  }
+}
+
+// Dark section override for signal
+.section {
+  .signal-prompt         { color: $dark-color-text; }
+  .signal-message--assistant { color: $dark-color-text-muted; }
+  .signal-overlap-reason { color: $dark-color-text-muted; }
+  .signal-footer         { color: $dark-color-text-muted; a { color: #a78bfa; } }
+  .signal-empty          { color: rgba(255, 255, 255, 0.3); }
+
+  .signal-persona-btn {
+    color: rgba(255, 255, 255, 0.85);
+    border-color: rgba(255, 255, 255, 0.2);
+
+    &:hover, &.is-active {
+      border-color: #a78bfa;
+      background: rgba(167, 139, 250, 0.15);
+      color: #a78bfa;
+    }
+  }
+
+  .signal-input {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.85);
+
+    &::placeholder { color: rgba(255, 255, 255, 0.3); }
+    &:focus { border-color: #a78bfa; }
+  }
+
 }
