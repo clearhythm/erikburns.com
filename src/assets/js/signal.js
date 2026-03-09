@@ -9,6 +9,30 @@
   let persona = null;
   let chatHistory = [];
 
+  // ─── Bar hover re-animation ───────────────────────────────────────────────
+
+  const orbCard = document.querySelector('.signal-orb-col');
+  if (orbCard) {
+    orbCard.addEventListener('mouseenter', () => {
+      const fills = orbCard.querySelectorAll('.signal-sample-fill');
+      // Snap to 0 instantly (no transition)
+      fills.forEach(fill => {
+        fill.style.transition = 'none';
+        fill.style.width = '0';
+      });
+      // Re-enable transition and expand
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        fills.forEach((fill, i) => {
+          fill.style.transition = '';
+          fill.style.transitionDelay = [0.05, 0.2, 0.35][i] + 's';
+          fill.style.width = fill.dataset.width + '%';
+        });
+      }));
+    });
+  }
+
+  // ─── Chat widget ──────────────────────────────────────────────────────────
+
   const messagesEl = document.getElementById('signal-messages');
   const form = document.getElementById('signal-form');
   const input = document.getElementById('signal-input');

@@ -54,13 +54,13 @@
     [[0.50, 0.64], [0.50, 0.68], [0.70, 0.68], [0.70, 0.85]],
   ];
 
-  // Colors [r, g, b] drawn from the lotus palette
+  // Colors [r, g, b] — emerald green palette matching Signal score bars
   var COLORS = [
-    [180, 100, 255],  // violet
-    [120, 160, 255],  // cornflower blue
-    [255, 100, 190],  // pink-magenta
-    [72, 220, 200],   // teal (matches terminal pads)
-    [210, 140, 255],  // lavender
+    [5, 150, 105],    // rich dark emerald
+    [16, 185, 129],   // mid emerald
+    [52, 211, 153],   // lighter emerald
+    [6, 120, 85],     // deep emerald
+    [110, 231, 183],  // soft mint
   ];
 
   // ── Build per-segment lengths for a path

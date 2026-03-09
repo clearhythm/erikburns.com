@@ -44,42 +44,54 @@ description: Product and UX leader building systems where AI handles operational
   <div class="container">
     <div class="signal-layout">
 
-      <!-- Text -->
-      <div class="signal-text">
-        <h2 class="section-title">What's My Story?</h2>
-        <h3 class="signal-col-title">That depends on who <em>you</em> are.</h3>
-        <p class="section-intro">I trained a custom agent on <em>how I actually work</em> — my wins, my dead ends, my thinking, and my vibe. Tell it who you are and what you need. It'll tell you honestly whether I'm the right fit.</p>
+      <!-- Left: text + CTA (desktop only) -->
+      <div class="signal-left">
+        <div class="signal-text">
+          <h2 class="section-title">What's the Score?</h2>
+          <p class="section-intro">Great work is about more than just a résumé and skills. I trained a custom agent on <em>how I actually work</em> — my wins, my dead ends, my thinking, and my personality. If you tell it who you are and why you're here, it'll tell you honestly how strong of a fit I am <strong>for you and your team</strong>, and why.</p>
+        </div>
+        <a href="#" class="btn btn-primary signal-open-modal signal-cta-btn signal-cta-desktop">Get Our Fit Score</a>
       </div>
 
-      <!-- Widget -->
-      <div class="signal-widget">
-        <div class="signal-orb-wrap" aria-hidden="true">
-          <div class="signal-ring-wrap">
-            <div class="signal-beam" style="--rot:20deg;  --dur:4.5s; --delay:0.3s"></div>
-            <div class="signal-beam" style="--rot:95deg;  --dur:5.2s; --delay:1.1s"></div>
-            <div class="signal-beam" style="--rot:165deg; --dur:3.9s; --delay:0.7s"></div>
-            <div class="signal-beam" style="--rot:235deg; --dur:6.0s; --delay:2.0s"></div>
-            <div class="signal-beam" style="--rot:305deg; --dur:4.7s; --delay:1.5s"></div>
-            <svg class="signal-ring" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="50" cy="50" r="42" fill="rgba(10,8,25,0.9)" stroke="rgba(196,181,253,0.55)" stroke-width="2.5"/>
-              <text x="50" y="54" text-anchor="middle" dominant-baseline="middle" class="signal-ring-question">?</text>
-            </svg>
+      <!-- Right: card (entire card is click target) -->
+      <div class="signal-orb-col signal-open-modal">
+        <p class="signal-sample-label">Sample Fit Score</p>
+        <div class="signal-card-top">
+          <div class="signal-orb-wrap" aria-hidden="true">
+            <div class="signal-ring-wrap">
+              <svg class="signal-ring" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="42" fill="#0f172a" stroke="#9d6ef5" stroke-width="4"/>
+                <text x="52" y="56" text-anchor="middle" dominant-baseline="middle" class="signal-ring-question">9</text>
+              </svg>
+            </div>
           </div>
-          <span class="signal-score-label">Signal Score</span>
-          <p class="signal-orb-label" id="signal-orb-label"></p>
+          <div class="signal-sample-bars">
+            <div class="signal-sample-row">
+              <span class="signal-sample-dim">Skills</span>
+              <div class="signal-sample-track"><div class="signal-sample-fill" data-width="82"></div></div>
+              <span class="signal-sample-score">8</span>
+            </div>
+            <div class="signal-sample-row">
+              <span class="signal-sample-dim">Alignment</span>
+              <div class="signal-sample-track"><div class="signal-sample-fill" data-width="88"></div></div>
+              <span class="signal-sample-score">9</span>
+            </div>
+            <div class="signal-sample-row">
+              <span class="signal-sample-dim">Personality</span>
+              <div class="signal-sample-track"><div class="signal-sample-fill" data-width="74"></div></div>
+              <span class="signal-sample-score">7</span>
+            </div>
+          </div>
         </div>
-        <p class="signal-cta-label">Who are you?</p>
-        <div class="signal-personas">
-          <button class="signal-persona-btn" data-persona="founder">Colleague</button>
-          <button class="signal-persona-btn" data-persona="recruiter">Manager</button>
-          <button class="signal-persona-btn" data-persona="builder">Agent</button>
-          <button class="signal-persona-btn" data-persona="curious">Just curious</button>
-        </div>
+        <hr class="signal-card-rule">
         <p class="signal-footer">
-          <a href="https://signal.habitualos.com" target="_blank" rel="noopener"><img class="signal-footer-icon" src="/assets/img/signal-logo.png" alt="Signal"></a>
-          <span>Powered by <strong>Signal</strong> — better networking built on real work, not résumés. <a href="https://github.com/erikburns" target="_blank" rel="noopener">GitHub ↗</a></span>
+          <a href="https://signal.habitualos.com" target="_blank" rel="noopener" onclick="event.stopPropagation()"><img class="signal-footer-icon" src="/assets/img/signal-logo.png" alt="Signal"></a>
+          <span>Powered by <strong>Signal</strong> — professional networking built on real work, not résumés. <a href="https://github.com/erikburns" target="_blank" rel="noopener" onclick="event.stopPropagation()">GitHub ↗</a></span>
         </p>
       </div>
+
+      <!-- CTA below card (mobile only) -->
+      <a href="#" class="btn btn-primary signal-open-modal signal-cta-mobile">Get Our Fit Score</a>
 
     </div>
   </div>
@@ -545,17 +557,20 @@ description: Product and UX leader building systems where AI handles operational
     }
   });
 
-  // Signal orb — fade in on scroll
+  // Signal orb — animate on scroll enter/exit
   const signalWrap = document.querySelector('.signal-orb-wrap');
   if (signalWrap) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
+          signalWrap.classList.remove('is-visible');
+          void signalWrap.offsetHeight; // force reflow to restart animations
           signalWrap.classList.add('is-visible');
-          observer.disconnect();
+        } else {
+          signalWrap.classList.remove('is-visible');
         }
       });
-    }, { threshold: 0.25 });
+    }, { threshold: 0.4 });
     observer.observe(signalWrap);
   }
 })();
@@ -569,7 +584,7 @@ description: Product and UX leader building systems where AI handles operational
   var timers = [];
   var active = false;
 
-  function rHue() { return Math.random() < 0.5 ? 0 : Math.floor(Math.random() * 360); }
+  function rHue() { return 215 + Math.floor(Math.random() * 30); }
   function rMs(lo, hi) { return lo + Math.random() * (hi - lo); }
 
   function scheduleBeam(beam) {
@@ -584,8 +599,11 @@ description: Product and UX leader building systems where AI handles operational
   orb.addEventListener('mouseenter', function () {
     active = true;
     beams.forEach(function (b) {
-      b.style.transition = 'filter 2.5s ease';
+      b.style.transition = 'none';
       b.style.filter = 'hue-rotate(' + rHue() + 'deg) saturate(2) blur(0.5px)';
+      requestAnimationFrame(function () {
+        b.style.transition = 'filter 2.5s ease';
+      });
       scheduleBeam(b);
     });
   });
