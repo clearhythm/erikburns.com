@@ -100,9 +100,9 @@
 .hero-mark-wrap {
   position: relative;
   display: block;
-  width: 190px;
-  max-width: 42vw;
-  margin: 0 auto $space-md;
+  width: 200px;
+  max-width: 45vw;
+  margin: 0 auto $space-xs;
 
   @media (max-width: $breakpoint-sm) {
     width: 120px;
@@ -110,6 +110,172 @@
     margin-top: $space-2xl;
     margin-bottom: $space-sm;
   }
+}
+
+// Hero orb
+.hero-orb {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto $space-xs;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  &:hover {
+    transform: scale(1.25);
+  }
+}
+
+.hero-orb-core-wrap {
+  position: absolute;
+  z-index: 2;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  .hero-orb:hover & {
+    transform: scale(1.3);
+  }
+}
+
+.hero-orb-core {
+  width: 70px;
+  height: 70px;
+  display: block;
+  overflow: visible;
+  filter: blur(0.5px);
+  opacity: 0.75;
+  transition: opacity 0.4s ease;
+
+  .hero-orb:hover & {
+    opacity: 1;
+  }
+}
+
+.hero-orb-beam {
+  position: absolute;
+  left: calc(50% - 1.5px);
+  top: calc(50% - 75px);
+  width: 3px;
+  height: 75px;
+  background: linear-gradient(to top, rgba(225, 210, 255, 0.92) 0%, rgba(196, 181, 253, 0.55) 40%, rgba(245, 248, 255, 0.65) 100%);
+  filter: blur(0.5px);
+  border-radius: 50%;
+  transform-origin: center bottom;
+  animation: beam-pulse var(--dur, 5s) ease-in-out infinite var(--delay, 0s);
+}
+
+
+@keyframes beam-pulse {
+  0%, 100% { transform: rotate(var(--rot, 0deg)) scaleY(0.25); opacity: 0.1;  }
+  28%       { transform: rotate(calc(var(--rot, 0deg) + 14deg)) scaleY(1.5);  opacity: 0.85; }
+  55%       { transform: rotate(calc(var(--rot, 0deg) - 8deg))  scaleY(0.6);  opacity: 0.25; }
+  78%       { transform: rotate(calc(var(--rot, 0deg) + 5deg))  scaleY(1.1);  opacity: 0.55; }
+}
+
+// Hero SVG lotus
+.hero-lotus {
+  width: 100%;
+  height: auto;
+  display: block;
+  cursor: pointer;
+  animation: lotus-float 5s ease-in-out infinite;
+}
+
+@keyframes lotus-float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes lotus-ripple-1 {
+  0%, 100% { fill: rgba(162, 125, 248, 0.55); }
+  15%       { fill: rgba(162, 125, 248, 0.88); }
+  35%       { fill: rgba(162, 125, 248, 0.55); }
+}
+
+@keyframes lotus-ripple-2 {
+  0%, 100% { fill: rgba(138, 108, 225, 0.40); }
+  15%       { fill: rgba(138, 108, 225, 0.75); }
+  35%       { fill: rgba(138, 108, 225, 0.40); }
+}
+
+@keyframes lotus-ripple-3 {
+  0%, 100% { fill: rgba(115, 88, 200, 0.28); }
+  15%       { fill: rgba(115, 88, 200, 0.62); }
+  35%       { fill: rgba(115, 88, 200, 0.28); }
+}
+
+.lotus-petal {
+  stroke: none;
+}
+
+// center (DOM 1): blooms first
+.lotus-petal:nth-child(1) {
+  animation: lotus-ripple-1 6s ease-in-out infinite 0s;
+}
+
+// left inner (DOM 2) + right inner (DOM 3): second
+.lotus-petal:nth-child(2) {
+  animation: lotus-ripple-2 6s ease-in-out infinite 1.2s;
+}
+
+.lotus-petal:nth-child(3) {
+  animation: lotus-ripple-2 6s ease-in-out infinite 1.2s;
+}
+
+// left outer (DOM 4): third
+.lotus-petal:nth-child(4) {
+  animation: lotus-ripple-3 6s ease-in-out infinite 2.4s;
+}
+
+// right outer (DOM 5): third (mirrored)
+.lotus-petal:nth-child(5) {
+  animation: lotus-ripple-3 6s ease-in-out infinite 2.4s;
+}
+
+.lotus-stem,
+.lotus-node {
+  display: none;
+}
+
+.lotus-stem {
+  stroke: rgba(138, 108, 225, 0.4);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+.lotus-node {
+  fill: rgba(115, 88, 200, 0.4);
+}
+
+.hero-wave {
+  width: 100%;
+  max-width: 380px;
+  height: 50px;
+  overflow: hidden;
+  margin: 0 auto $space-lg;
+}
+
+.hero-wave-svg {
+  width: 200%;
+  height: 100%;
+  animation: wave-scroll 6s linear infinite;
+}
+
+@keyframes wave-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.hero-monogram {
+  font-family: $font-heading;
+  font-size: 2rem;
+  font-weight: 400;
+  color: rgba(167, 139, 250, 0.5);
+  letter-spacing: 0.15em;
+  margin: 0 auto $space-md;
+  text-align: center;
 }
 
 .hero-mark {
@@ -227,6 +393,11 @@
   background: #0f172a;
   color: $dark-color-text-muted;
   border-top: 1px solid rgba(255, 255, 255, 0.07);
+
+  a {
+    color: #c4b5fd;
+    &:hover { color: #c4b5fd; text-decoration: underline; }
+  }
 
   @media (min-width: $breakpoint-md) {
     padding: 4rem 0 5.5rem;
@@ -643,6 +814,228 @@
 
   html[data-theme="dark"] & {
     color: #93c5fd;
+  }
+}
+
+// ─── Professional Focus ───────────────────────────────────────────────────────
+
+.who-quote {
+  margin: $space-xl 0 $space-xl;
+  max-width: 680px;
+  border: none;
+  padding: $space-sm 0 $space-sm $space-xl;
+  border-left: 2px solid rgba(167, 139, 250, 0.5);
+
+  p {
+    font-family: $font-heading;
+    font-size: 1.4rem;
+    font-weight: 400;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.55;
+    margin: 0 0 $space-sm;
+
+    @media (min-width: $breakpoint-md) {
+      font-size: 1.65rem;
+    }
+  }
+
+  cite {
+    font-family: $font-body;
+    font-size: $font-size-sm;
+    font-style: normal;
+    color: rgba(255, 255, 255, 0.35);
+    letter-spacing: 0.02em;
+  }
+}
+
+// ─── My Background — interactive Venn ────────────────────────────────────────
+
+// Section padding — same generous treatment as Signal
+#who.section {
+  padding: 4rem 0 4.5rem;
+
+  @media (min-width: $breakpoint-md) {
+    padding: 5rem 0 6rem;
+  }
+}
+
+// Two-column layout: SVG left, description right
+.who-layout {
+  display: grid;
+  gap: 3rem;
+  margin-top: 0;
+
+  @media (min-width: $breakpoint-md) {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+
+// SVG wrapper
+.who-svg-wrap {
+  width: 100%;
+}
+
+.who-svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+// Circle groups — each is a clickable unit
+.who-circle-group {
+  cursor: pointer;
+  user-select: none;
+
+  &:focus { outline: none; }
+}
+
+// Circle base
+.who-circle {
+  fill: rgba(167, 139, 250, 0.07);
+  stroke: rgba(255, 255, 255, 0.18);
+  stroke-width: 1;
+  transition: none;
+}
+
+// Per-domain circle tints — hover and active
+// Active state has a transition so it fades IN; losing active has transition:none so it snaps OFF instantly
+.who-circle-group[data-domain="science"] .who-circle { fill: rgba(167, 139, 250, 0.07); }
+.who-circle-group[data-domain="science"]:hover .who-circle { fill: rgba(124, 92, 191, 0.35); stroke: rgba(167, 139, 250, 0.5); stroke-width: 1.5; }
+.who-circle-group[data-domain="science"].active .who-circle {
+  fill: #7c5cbf; stroke: #a78bfa; stroke-width: 1.5;
+  transition: fill 0.25s ease-out, stroke 0.25s ease-out;
+}
+
+.who-circle-group[data-domain="product"] .who-circle { fill: rgba(99, 102, 241, 0.07); }
+.who-circle-group[data-domain="product"]:hover .who-circle { fill: rgba(67, 70, 168, 0.35); stroke: rgba(99, 102, 241, 0.5); stroke-width: 1.5; }
+.who-circle-group[data-domain="product"].active .who-circle {
+  fill: #4346a8; stroke: #6366f1; stroke-width: 1.5;
+  transition: fill 0.25s ease-out, stroke 0.25s ease-out;
+}
+
+.who-circle-group[data-domain="ai"] .who-circle { fill: rgba(139, 92, 246, 0.07); }
+.who-circle-group[data-domain="ai"]:hover .who-circle { fill: rgba(91, 33, 182, 0.35); stroke: rgba(139, 92, 246, 0.5); stroke-width: 1.5; }
+.who-circle-group[data-domain="ai"].active .who-circle {
+  fill: #5b21b6; stroke: #8b5cf6; stroke-width: 1.5;
+  transition: fill 0.25s ease-out, stroke 0.25s ease-out;
+}
+
+// Labels in SVG
+.who-circle-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  fill: rgba(255, 255, 255, 0.5);
+  transition: fill 0.25s ease;
+  pointer-events: none;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  .who-circle-group:hover & {
+    fill: rgba(255, 255, 255, 0.65);
+  }
+
+  .who-circle-group.active & {
+    fill: rgba(167, 139, 250, 0.9);
+  }
+}
+
+// Dotted callout lines
+.who-callout {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.2);
+  stroke-width: 1;
+  stroke-dasharray: 3 4;
+  pointer-events: none;
+  transition: stroke 0.25s ease;
+
+  .who-circle-group:hover & {
+    stroke: rgba(255, 255, 255, 0.45);
+  }
+
+  .who-circle-group.active & {
+    stroke: rgba(167, 139, 250, 0.6);
+  }
+}
+
+// Floating callout labels
+.who-callout-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  fill: rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  pointer-events: none;
+  transition: fill 0.25s ease;
+
+  .who-circle-group:hover & {
+    fill: rgba(255, 255, 255, 0.7);
+  }
+
+}
+
+.who-circle-group[data-domain="science"].active .who-callout-label { fill: #a78bfa; }
+.who-circle-group[data-domain="product"].active .who-callout-label { fill: #6366f1; }
+.who-circle-group[data-domain="ai"].active .who-callout-label     { fill: #8b5cf6; }
+
+// Description panels — left column
+.who-desc-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: $space-xl;
+}
+
+.who-desc {
+  display: none;
+  min-height: 160px;
+  flex-direction: column;
+  gap: $space-md;
+
+  &.active {
+    display: flex;
+  }
+}
+
+.who-desc-name {
+  font-family: $font-body;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+}
+
+.who-desc-body {
+  font-size: $font-size-lg;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.who-desc-points {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+
+  li {
+    font-size: $font-size-base;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.6;
+    padding-left: $space-md;
+    position: relative;
+
+    &::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: rgba(167, 139, 250, 0.5);
+    }
   }
 }
 
@@ -1378,8 +1771,8 @@
 
 .signal-prompt {
   font-family: $font-body;
-  font-size: $font-size-lg;
-  font-weight: 500;
+  font-size: $font-size-2xl;
+  font-weight: 600;
   color: $color-text;
   margin-bottom: $space-md;
 
@@ -1389,10 +1782,22 @@
 .signal-personas {
   display: flex;
   flex-wrap: wrap;
-  gap: $space-sm;
+  gap: 0.5rem;
+  padding: $space-md $space-xs;
+  margin: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.09) 0%,
+    rgba(255, 255, 255, 0.025) 35%,
+    rgba(255, 255, 255, 0.025) 65%,
+    rgba(255, 255, 255, 0.09) 100%
+  );
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .signal-persona-btn {
+  flex-shrink: 0;
   font-family: $font-body;
   font-size: $font-size-base;
   font-weight: 500;
@@ -1400,7 +1805,7 @@
   background: transparent;
   border: 1.5px solid $color-border;
   border-radius: 100px;
-  padding: 0.55rem 1.25rem;
+  padding: 0.7rem 1.6rem;
   cursor: pointer;
   transition: border-color 0.15s, background 0.15s, color 0.15s;
 
@@ -1603,16 +2008,305 @@
   &:disabled { opacity: 0.4; cursor: default; }
 }
 
+.signal-footer-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  object-fit: contain;
+  display: block;
+}
+
+a:has(.signal-footer-icon) {
+  display: block;
+  flex-shrink: 0;
+  transition: filter 0.2s ease;
+
+  &:hover {
+    filter: drop-shadow(0 0 7px rgba(180, 160, 255, 0.55));
+  }
+}
+
+.signal-rule {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin: 0;
+}
+
 .signal-footer {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
   font-size: $font-size-sm;
   color: $color-text-muted;
   margin: 0;
+  padding-right: $space-xl;
 
   a { color: $color-primary; }
 
   html[data-theme="dark"] & {
     color: $dark-color-text-muted;
     a { color: #a78bfa; }
+  }
+}
+
+// Signal layout
+.signal-layout {
+  display: grid;
+  gap: 2rem;
+
+  @media (min-width: $breakpoint-md) {
+    grid-template-columns: 3fr 2fr;
+    align-items: start;
+    gap: 3rem;
+  }
+}
+
+.signal-text {
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+
+  .section-intro { margin-bottom: 0; }
+}
+
+.signal-widget {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-md;
+  min-width: 0; // allows grid child to constrain, enabling inner overflow-x scroll
+
+  // personas: full width, horizontal scroll
+  .signal-personas {
+    width: 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    &::-webkit-scrollbar { display: none; }
+  }
+
+  // footer inside widget: smaller, muted
+  .signal-footer {
+    margin-top: $space-sm;
+  }
+}
+
+.signal-cta-label {
+  font-family: $font-body;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0 0 $space-sm;
+  align-self: flex-start;
+}
+
+.signal-col-title {
+  font-family: $font-body;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+}
+
+// Score preview card
+.signal-preview {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(167, 139, 250, 0.2);
+  border-radius: 12px;
+  padding: $space-xl;
+}
+
+.signal-preview-intro {
+  font-size: $font-size-sm;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+// Ring centered stack
+.signal-orb-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 1s ease, transform 1s ease;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.signal-ring-wrap {
+  position: relative;
+  width: 270px;
+  height: 270px;
+  flex-shrink: 0;
+}
+
+.signal-beam {
+  position: absolute;
+  left: calc(50% - 1px);
+  top: calc(50% - 95px);
+  width: 2px;
+  height: 95px;
+  background: linear-gradient(to top, rgba(196,181,253,0.72) 0%, rgba(196,181,253,0.28) 55%, rgba(245,248,255,0) 100%);
+  transform-origin: center bottom;
+  transform: rotate(var(--rot));
+  animation: beam-pulse var(--dur, 5s) ease-in-out infinite var(--delay, 0s);
+  filter: blur(0.5px);
+}
+
+.signal-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 150px;
+  z-index: 1;
+}
+
+.signal-orb-label {
+  font-size: 0.7rem;
+  color: rgba(196, 181, 253, 0.45);
+  letter-spacing: 0.18em;
+  margin-top: $space-sm;
+  margin-bottom: 0;
+  font-family: $font-body;
+  width: 9em;
+  text-align: left;
+  align-self: flex-start;
+}
+
+.signal-ring-question {
+  font-family: $font-heading;
+  font-size: 52px;
+  font-weight: 400;
+  fill: rgba(255, 255, 255, 0.92);
+}
+
+.signal-score-label {
+  display: inline-block;
+  font-family: $font-body;
+  font-size: $font-size-sm;
+  font-weight: 600;
+  color: rgba(196, 181, 253, 0.55);
+  border: 1px solid rgba(196, 181, 253, 0.25);
+  border-radius: 100px;
+  padding: 0.2rem 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: -52px;
+  position: relative;
+  z-index: 2;
+}
+
+.signal-preview-eyebrow {
+  font-size: $font-size-sm;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #a78bfa;
+  margin: 0;
+  text-align: center;
+}
+
+.signal-preview-score-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  margin-bottom: $space-lg;
+}
+
+.signal-preview-num {
+  font-family: $font-heading;
+  font-size: 4.5rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1;
+}
+
+.signal-preview-denom {
+  font-family: $font-body;
+  font-size: $font-size-xl;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.signal-preview-certainty {
+  margin-bottom: $space-lg;
+}
+
+.signal-preview-certainty-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: $font-size-sm;
+  color: rgba(255, 255, 255, 0.35);
+  margin-bottom: $space-xs;
+}
+
+.signal-preview-bar {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.signal-preview-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(to right, #7c3aed, #a78bfa);
+  border-radius: 2px;
+  transition: width 0.6s ease;
+}
+
+.signal-preview-lines {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+  margin-bottom: $space-lg;
+}
+
+.signal-preview-line {
+  height: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+
+  &--short {
+    width: 60%;
+  }
+}
+
+.signal-preview-hint {
+  font-size: $font-size-sm;
+  color: rgba(255, 255, 255, 0.25);
+  font-style: italic;
+  text-align: center;
+  margin: 0;
+}
+
+.signal-preview-comment {
+  font-size: $font-size-base;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.6;
+  font-style: italic;
+  border-left: 2px solid rgba(167, 139, 250, 0.4);
+  padding-left: $space-md;
+  margin: 0;
+}
+
+// Signal section — more vertical breathing room
+#signal.section {
+  padding: 6rem 0 7rem;
+  box-shadow:
+    inset 0 24px 48px -8px rgba(0, 0, 0, 0.8),
+    inset 0 -24px 48px -8px rgba(0, 0, 0, 0.8);
+
+  @media (min-width: $breakpoint-md) {
+    padding: 8rem 0 9rem;
   }
 }
 

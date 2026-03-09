@@ -1,0 +1,20 @@
+{# Backup: div-based blob orb (border-radius morphing approach) #}
+{# CSS lives in _landing.scss under "// Hero orb" — @keyframes orb-morph #}
+
+<div class="hero-orb-core-wrap">
+  <div class="hero-orb-core"></div>
+</div>
+
+{# SCSS for the core:
+.hero-orb-core {
+  width: 50px;
+  height: 44px;
+  background: radial-gradient(ellipse at 42% 44%, rgba(225, 210, 255, 0.98) 0%, rgba(139, 92, 246, 0.7) 50%, transparent 78%);
+  filter: blur(0.5px);
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  animation: orb-morph 7.3s ease-in-out infinite;
+}
+
+@keyframes orb-morph — extreme border-radius values between 18%-82%
+Issue: border-radius clips to rectangular bounding box at extreme values
+#}

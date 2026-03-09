@@ -42,43 +42,51 @@ description: Product and UX leader building systems where AI handles operational
 <!-- What's Our Signal? -->
 <section class="section" id="signal">
   <div class="container">
-    <div class="signal-layout">
+    <div class="signal-intro-grid">
 
-      <!-- Text -->
-      <div class="signal-text">
+      <!-- Column 1: explanation + action -->
+      <div class="signal-intro-left">
         <h2 class="section-title">What's My Story?</h2>
         <h3 class="signal-col-title">That depends on who <em>you</em> are.</h3>
-        <p class="section-intro">I trained a custom agent on <em>how I actually work</em> — my wins, my dead ends, my thinking, and my vibe. Tell it who you are and what you need. It'll tell you honestly whether I'm the right fit.</p>
-      </div>
-
-      <!-- Widget -->
-      <div class="signal-widget">
-        <div class="signal-orb-wrap" aria-hidden="true">
-          <div class="signal-ring-wrap">
-            <div class="signal-beam" style="--rot:20deg;  --dur:4.5s; --delay:0.3s"></div>
-            <div class="signal-beam" style="--rot:95deg;  --dur:5.2s; --delay:1.1s"></div>
-            <div class="signal-beam" style="--rot:165deg; --dur:3.9s; --delay:0.7s"></div>
-            <div class="signal-beam" style="--rot:235deg; --dur:6.0s; --delay:2.0s"></div>
-            <div class="signal-beam" style="--rot:305deg; --dur:4.7s; --delay:1.5s"></div>
-            <svg class="signal-ring" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="50" cy="50" r="42" fill="rgba(10,8,25,0.9)" stroke="rgba(196,181,253,0.55)" stroke-width="2.5"/>
-              <text x="50" y="54" text-anchor="middle" dominant-baseline="middle" class="signal-ring-question">?</text>
-            </svg>
-          </div>
-          <span class="signal-score-label">Signal Score</span>
-          <p class="signal-orb-label" id="signal-orb-label"></p>
-        </div>
-        <p class="signal-cta-label">Who are you?</p>
+        <p class="section-intro">I trained a custom agent on <em>how I actually work</em> — my wins, my dead ends, my thinking, and my personality. Tell it who you are and what you need. It'll tell you honestly whether I'm the right fit.</p>
         <div class="signal-personas">
+          <button class="signal-persona-btn" data-persona="recruiter">Recruiter</button>
           <button class="signal-persona-btn" data-persona="founder">Colleague</button>
-          <button class="signal-persona-btn" data-persona="recruiter">Manager</button>
           <button class="signal-persona-btn" data-persona="builder">Agent</button>
           <button class="signal-persona-btn" data-persona="curious">Just curious</button>
         </div>
         <p class="signal-footer">
           <a href="https://signal.habitualos.com" target="_blank" rel="noopener"><img class="signal-footer-icon" src="/assets/img/signal-logo.png" alt="Signal"></a>
-          <span>Powered by <strong>Signal</strong> — better networking built on real work, not résumés. <a href="https://github.com/erikburns" target="_blank" rel="noopener">GitHub ↗</a></span>
+          <span>Powered by <strong>Signal</strong> — an open source networking layer built on real work, not résumés. <a href="https://github.com/erikburns" target="_blank" rel="noopener">GitHub ↗</a></span>
         </p>
+      </div>
+
+      <!-- Column 2: score preview card -->
+      <div class="signal-intro-right">
+        <div class="signal-preview">
+          <div class="signal-orb-wrap" aria-hidden="true">
+            <svg class="signal-orb" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <radialGradient id="signal-orb-grad" cx="45%" cy="45%" r="55%">
+                  <stop offset="0%"   stop-color="#7c3aed" stop-opacity="0.65"/>
+                  <stop offset="100%" stop-color="#f5f8ff" stop-opacity="0.55"/>
+                </radialGradient>
+              </defs>
+              <path id="signal-orb-blob" fill="url(#signal-orb-grad)"/>
+            </svg>
+            <p class="signal-orb-label" id="signal-orb-label"></p>
+          </div>
+          <div class="signal-preview-certainty">
+            <div class="signal-preview-certainty-row">
+              <span>Fit Score</span>
+              <span>—</span>
+            </div>
+            <div class="signal-preview-bar">
+              <div class="signal-preview-bar-fill" style="width: 0%"></div>
+            </div>
+          </div>
+          <p class="signal-preview-comment">"Something brought you here. Tell me what you're looking for — I can get surprisingly specific."</p>
+        </div>
       </div>
 
     </div>
@@ -138,7 +146,7 @@ description: Product and UX leader building systems where AI handles operational
 
         <div class="who-desc" data-domain="ai">
           <p class="who-desc-name">Agentic AI</p>
-          <p class="who-desc-body">Agentic AI <em>is new to all of us</em>. But after I got over the initial shock of realizing it could fully automate my job, I started getting innovative with it. Agentic AI now feels like a natural evolution of my career, the co-creative ally I have been seeking all along. I started building applications with AI nearly full-time in 2024, and have been on a mission ever since: <strong>to extend human capacity for growth and joy</strong> in everyday life, <strong>in deep partnership with AI.</strong></p>
+          <p class="who-desc-body">Agentic AI <em>is new to all of us</em>. But after I got over the initial shock of realizing it could fully automate my job, I started getting truly creative with it. Agentic AI now feels like a natural evolution of my career, the co-creative ally I have been seeking all along. I started building applications with AI nearly full-time in 2024, and have been on a mission ever since: <strong>to extend human capacity for growth and joy</strong> in everyday life, <strong>in partnership with AI.</strong></p>
         </div>
 
       </div>
@@ -178,7 +186,7 @@ description: Product and UX leader building systems where AI handles operational
 <section class="section" id="live-work">
   <div class="container">
     <h2 class="section-title">Live Work</h2>
-    <p class="section-intro">The apps below are all live in production right now. I built them using <a href="https://habitualos.com/">HabitualOS</a>, a toolkit I developed to ship agentic apps fast.</p>
+    <p class="section-intro">Systems running in production right now — not past projects.</p>
     <!-- TODO: HabitualOS card + Healify card, present-tense, with status indicators -->
   </div>
 </section>
@@ -186,8 +194,8 @@ description: Product and UX leader building systems where AI handles operational
 <!-- Deep Story — PLACEHOLDER -->
 <section class="section" id="story">
   <div class="container">
-    <h2 class="section-title">A Case Study</h2>
-    <p class="section-intro">Ways Healify worked, the reasons it didn't, and what I learned trying to solve one of health tech's biggest problems.</p>
+    <h2 class="section-title">How HabitualOS Got Built</h2>
+    <p class="section-intro">One fully told story — the problem, the clinic, the system, what changed.</p>
     <!-- TODO: Long-form narrative section -->
   </div>
 </section>
@@ -545,9 +553,36 @@ description: Product and UX leader building systems where AI handles operational
     }
   });
 
-  // Signal orb — fade in on scroll
+  // Signal orb — quiet/listening mode, slower morph, fades in on scroll
+  const signalBlob = document.getElementById('signal-orb-blob');
   const signalWrap = document.querySelector('.signal-orb-wrap');
-  if (signalWrap) {
+
+  if (signalBlob && signalWrap) {
+    const SIGNAL_DURATION = 3800;
+    let sFrom = pick();
+    let sTo = pick();
+    let sStart = null;
+
+    signalBlob.setAttribute('d', toPath(sFrom));
+
+    function signalFrame(ts) {
+      if (!sStart) sStart = ts;
+      const t = Math.min((ts - sStart) / SIGNAL_DURATION, 1);
+      const e = easeInOut(t);
+      const interp = sFrom.map((v, i) => v + (sTo[i] - v) * e);
+      signalBlob.setAttribute('d', toPath(interp));
+      if (t < 1) {
+        requestAnimationFrame(signalFrame);
+      } else {
+        sFrom = sTo;
+        sTo = pick();
+        sStart = null;
+        requestAnimationFrame(signalFrame);
+      }
+    }
+
+    requestAnimationFrame(signalFrame);
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -556,6 +591,7 @@ description: Product and UX leader building systems where AI handles operational
         }
       });
     }, { threshold: 0.25 });
+
     observer.observe(signalWrap);
   }
 })();

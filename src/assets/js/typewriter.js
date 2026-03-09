@@ -28,4 +28,55 @@ document.addEventListener('DOMContentLoaded', function() {
   setTimeout(function() {
     setInterval(next, 7000);
   }, 1500);
+
+  // Signal orb label — cursor sweeps through old word replacing with new
+  const labelEl = document.getElementById('signal-orb-label');
+  if (labelEl) {
+    const states = ['Listening...', 'Waiting...', 'Feeling...'];
+    let labelIndex = 0;
+    const CURSOR = '▌';
+
+    function sweepTo(from, to, onDone) {
+      var maxLen = Math.max(from.length, to.length);
+      var i = 0;
+      function step() {
+        var display = to.slice(0, Math.min(i, to.length))
+                    + (i < maxLen ? CURSOR : '')
+                    + from.slice(i + 1);
+        labelEl.textContent = display;
+        i++;
+        if (i <= maxLen) { setTimeout(step, 70); }
+        else { labelEl.textContent = to; onDone && onDone(); }
+      }
+      step();
+    }
+
+    function nextWord() {
+      var from = states[labelIndex];
+      labelIndex = (labelIndex + 1) % states.length;
+      sweepTo(from, states[labelIndex], function() {
+        setTimeout(nextWord, 5500);
+      });
+    }
+
+    function typeIn(target, onDone) {
+      var i = 0;
+      labelEl.textContent = CURSOR;
+      function step() {
+        i++;
+        labelEl.textContent = target.slice(0, i) + (i < target.length ? CURSOR : '');
+        if (i < target.length) { setTimeout(step, 70); }
+        else { labelEl.textContent = target; onDone && onDone(); }
+      }
+      setTimeout(step, 70);
+    }
+
+    labelEl.textContent = '\u00a0';
+    setTimeout(function() {
+      typeIn(states[0], function() {
+        setTimeout(nextWord, 5500);
+      });
+    }, 900);
+  }
+
 });
