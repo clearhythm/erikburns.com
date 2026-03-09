@@ -1535,11 +1535,25 @@
 
 // Case study page
 .case-study-hero {
-  padding: 6rem 0 3rem;
-  background: linear-gradient(to bottom, #f0ebfd, #ffffff);
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 6rem 0 4rem;
+  background: linear-gradient(#EBEDFD, #FDFCF3 70%, #B5DAFF); // Healify brand gradient
 
   html[data-theme="dark"] & {
     background: linear-gradient(to bottom, #1a1030, #0d0d18);
+  }
+
+  .case-study-lotus {
+    display: block;
+    width: clamp(312px, 47vw, 468px);
+    margin: 4rem auto $space-xl;
+
+    @media (min-width: $breakpoint-md) {
+      margin-top: 0;
+    }
   }
 }
 
@@ -1561,7 +1575,7 @@
 
   html[data-theme="dark"] & {
     color: $dark-color-text-muted;
-    &:hover { color: #93c5fd; }
+    &:hover { color: #a78bfa; }
   }
 }
 
@@ -1660,6 +1674,33 @@
   }
 }
 
+// Case study prose — used inside .section dark bands
+.case-study-prose {
+  max-width: 680px;
+
+  p {
+    font-size: $font-size-lg;
+    line-height: 1.8;
+    margin-bottom: $space-lg;
+  }
+
+  ul {
+    margin-left: $space-lg;
+    margin-bottom: $space-lg;
+
+    li {
+      font-size: $font-size-lg;
+      line-height: 1.75;
+      margin-bottom: $space-sm;
+    }
+  }
+
+  strong {
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.92);
+  }
+}
+
 .case-study-callout {
   background: rgba(124, 58, 237, 0.06);
   border-left: 3px solid #7c3aed;
@@ -1675,6 +1716,14 @@
   html[data-theme="dark"] & {
     background: rgba(124, 58, 237, 0.1);
     border-left-color: #a78bfa;
+  }
+
+  // Always-dark inside .section bands
+  .section & {
+    background: rgba(124, 58, 237, 0.12);
+    border-left-color: #a78bfa;
+
+    p { color: rgba(255, 255, 255, 0.8); }
   }
 }
 
