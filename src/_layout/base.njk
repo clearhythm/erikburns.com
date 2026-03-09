@@ -21,7 +21,9 @@
 
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2026 Erik Burns</p>
+      <a href="mailto:erik@erikburns.com" target="_blank" rel="noopener" aria-label="Email Erik Burns"><img src="/assets/img/living-interface-lotus.png" alt="" class="footer-lotus"></a>
+      <p>&copy; 2026 Erik Burns. All rights reserved.</p>
+      <p><a href="https://linkedin.com/in/erikburns" target="_blank" rel="noopener">LinkedIn</a> &middot; <a href="mailto:erik@erikburns.com" target="_blank" rel="noopener">erik@erikburns.com</a> &middot; <a href="https://habitualos.com" target="_blank" rel="noopener">HabitualOS</a></p>
     </div>
   </footer>
 
@@ -40,6 +42,19 @@
     </defs>
   </svg>
 
+  <script>
+    (function () {
+      var html = document.documentElement;
+      var TOP_COLOR = '#f0f4ff';
+      var BOTTOM_COLOR = '#080d17';
+      function update() {
+        var atTop = window.scrollY < 10;
+        html.style.backgroundColor = atTop ? TOP_COLOR : BOTTOM_COLOR;
+      }
+      update();
+      window.addEventListener('scroll', update, { passive: true });
+    })();
+  </script>
   <script src="/assets/js/navigation.js"></script>
   <script src="/assets/js/typewriter.js"></script>
   <script src="/assets/js/gallery.js"></script>
