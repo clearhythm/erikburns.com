@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: 2rem 1.5rem;
+  padding: 2rem 2.5rem;
   background-color: transparent;
   border-bottom: 1px solid transparent;
   box-shadow: none;
@@ -99,6 +99,9 @@
 .sidemenu .toggle span:nth-child(2) { top: 8px; }
 .sidemenu .toggle span:nth-child(3) { top: 16px; width: 65%; }
 
+.sidemenu .toggle.open span {
+  background: #fff;
+}
 .sidemenu .toggle.open span:nth-child(1) {
   top: 8px; width: 28px; height: 4px; transform: rotate(135deg);
 }
@@ -138,8 +141,8 @@
   height: 100vh;
   width: 100%;
   max-width: 600px;
-  padding: 0 2rem;
-  background: linear-gradient(180deg, #0f172a 0%, #1e1b4b 100%);
+  padding: 0 2.5rem 0 2.5rem;
+  background: #080d17;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -147,10 +150,8 @@
 
 .sidemenu-left ul {
   list-style: none;
-  padding-top: 8vh;
-  margin-top: 1rem;
-  margin-left: 0;
-  padding-bottom: 3vh;
+  padding: 8vh 0 3vh 0;
+  margin: 1rem 0 0 0;
   flex-grow: 1;
 }
 
@@ -163,8 +164,12 @@
   padding: 0;
   margin: 0;
   font-size: 2rem;
-  font-family: $font-body;
+  font-family: $font-heading;
   font-weight: 400;
+
+  @media (min-width: $breakpoint-md) {
+    font-size: 2.6rem;
+  }
 }
 
 .sidemenu-left ul li h3 a {
@@ -180,6 +185,13 @@
 
 .sidemenu-left footer {
   padding: 2rem 0;
+}
+
+.sidemenu-logo {
+  display: block;
+  width: 72px;
+  opacity: 0.75;
+  margin-bottom: 0.75rem;
 }
 
 .sidemenu-right {
