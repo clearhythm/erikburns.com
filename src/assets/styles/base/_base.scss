@@ -21,6 +21,11 @@ body {
   flex: 1;
 }
 
+@keyframes logo-breathe {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%       { transform: translateY(-4px) scale(1.07); }
+}
+
 .footer {
   background: #080d17;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
@@ -38,10 +43,12 @@ body {
 
   a:has(.footer-lotus) {
     display: inline-block;
+    animation: logo-breathe 7s ease-in-out infinite;
     transition: filter 0.2s ease, opacity 0.2s ease;
 
     &:hover {
       opacity: 1;
+      animation-play-state: paused;
       filter: drop-shadow(0 0 7px rgba(180, 160, 255, 0.55));
     }
   }

@@ -1,10 +1,19 @@
+@keyframes sidemenu-logo-breathe {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%       { transform: translateY(-8px) scale(1.07); }
+}
+
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: 2rem 2.5rem;
+  padding: 2rem 1.25rem;
+
+  @media (min-width: $breakpoint-md) {
+    padding: 2rem 2rem;
+  }
   background-color: transparent;
   border-bottom: 1px solid transparent;
   box-shadow: none;
@@ -141,7 +150,11 @@
   height: 100vh;
   width: 100%;
   max-width: 600px;
-  padding: 0 2.5rem 0 2.5rem;
+  padding: 0 2.5rem 0 1.25rem;
+
+  @media (min-width: $breakpoint-md) {
+    padding: 0 2.5rem 0 2rem;
+  }
   background: #080d17;
   overflow-y: auto;
   display: flex;
@@ -168,7 +181,7 @@
   font-weight: 400;
 
   @media (min-width: $breakpoint-md) {
-    font-size: 2.6rem;
+    font-size: 2.2rem;
   }
 }
 
@@ -187,9 +200,25 @@
   padding: 2rem 0;
 }
 
+.sidemenu-logo-link {
+  display: inline-block;
+  animation: sidemenu-logo-breathe 6s ease-in-out 3.5s infinite;
+  transition: filter 0.2s ease, opacity 0.2s ease;
+
+  &:hover {
+    opacity: 1;
+    animation-play-state: paused;
+    filter: drop-shadow(0 0 7px rgba(180, 160, 255, 0.55));
+  }
+
+  &:active {
+    filter: drop-shadow(0 0 12px rgba(180, 160, 255, 0.8));
+  }
+}
+
 .sidemenu-logo {
   display: block;
-  width: 72px;
+  width: 80px;
   opacity: 0.75;
   margin-bottom: 0.75rem;
 }

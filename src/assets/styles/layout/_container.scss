@@ -1,7 +1,7 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 $space-md;
+  padding: 0 1.25rem;
 
   @media (min-width: $breakpoint-md) {
     padding: 0 $space-xl;
@@ -11,7 +11,7 @@
 .container-narrow {
   max-width: 720px;
   margin: 0 auto;
-  padding: 0 $space-md;
+  padding: 0 1.25rem;
 
   @media (min-width: $breakpoint-md) {
     padding: 0 $space-xl;
