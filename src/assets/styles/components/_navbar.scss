@@ -75,6 +75,15 @@
   flex-shrink: 0;
 }
 
+// Dark-page navbar overrides (inner pages with hardcoded dark bg)
+.page-dark .navbar-brand {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.page-dark .sidemenu .toggle span {
+  background: rgba(255, 255, 255, 0.85);
+}
+
 // Hamburger toggle
 .sidemenu .toggle {
   width: 24px;

@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap">
   <link rel="stylesheet" href="/assets/styles/main.css">
 </head>
-<body>
+<body{% if pageClass %} class="{{ pageClass }}"{% endif %}>
   {% include "nav.njk" %}
 
   <main class="main">
@@ -45,7 +45,8 @@
   <script>
     (function () {
       var html = document.documentElement;
-      var TOP_COLOR = '#f0f4ff';
+      var isDark = document.body.classList.contains('page-dark');
+      var TOP_COLOR = isDark ? '#080d17' : '#f0f4ff';
       var BOTTOM_COLOR = '#080d17';
       function update() {
         var atTop = window.scrollY < 10;
