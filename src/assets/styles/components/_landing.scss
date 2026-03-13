@@ -1653,6 +1653,10 @@
     background: linear-gradient(to bottom, #1a1030, #0d0d18);
   }
 
+  .page-dark & {
+    background: linear-gradient(to bottom, #1a1030, #0d0d18);
+  }
+
   .case-study-lotus {
     display: block;
     width: clamp(312px, 47vw, 468px);
@@ -1689,7 +1693,8 @@
     text-decoration: none;
   }
 
-  html[data-theme="dark"] & {
+  html[data-theme="dark"] &,
+  .page-dark & {
     color: $dark-color-text-muted;
     &:hover { color: #a78bfa; }
   }
@@ -1704,7 +1709,8 @@
   line-height: 1.15;
   margin-bottom: $space-md;
 
-  html[data-theme="dark"] & {
+  html[data-theme="dark"] &,
+  .page-dark & {
     color: $dark-color-text;
   }
 }
@@ -1716,7 +1722,8 @@
   max-width: 600px;
   margin-bottom: $space-xl;
 
-  html[data-theme="dark"] & {
+  html[data-theme="dark"] &,
+  .page-dark & {
     color: $dark-color-text-muted;
   }
 }
