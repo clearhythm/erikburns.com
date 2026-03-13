@@ -378,11 +378,14 @@ description: Product and UX leader building systems where AI handles operational
     <ul class="writing-list">
       {% for post in writing %}
       <li class="writing-item">
-        <img src="/assets/img/icons/substack.svg" alt="Substack" class="writing-icon">
-        <div>
-          <a href="{{ post.link }}" target="_blank" rel="noopener">{{ post.title }}</a>
-          <p class="writing-meta">{{ post.date }}{% if post.subtitle %} · {{ post.subtitle }}{% endif %}</p>
-        </div>
+        <a href="{{ post.link }}" class="writing-row" target="_blank" rel="noopener">
+          <svg class="writing-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 511.471" aria-hidden="true"><path d="M0 0h448v62.804H0V0zm0 229.083h448v282.388L223.954 385.808 0 511.471V229.083zm0-114.542h448v62.804H0v-62.804z"/></svg>
+          <div>
+            <span class="writing-title">{{ post.title }}</span>
+            {% if post.subtitle %}<p class="writing-subtitle">{{ post.subtitle }}</p>{% endif %}
+            <p class="writing-date">{{ post.date }}</p>
+          </div>
+        </a>
       </li>
       {% endfor %}
     </ul>

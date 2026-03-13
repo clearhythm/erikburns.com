@@ -420,10 +420,10 @@
   .section-intro    { color: $dark-color-text-muted; }
   .section-label    { color: #93c5fd; }
 
-  // Writing items — title link is white, not section purple
-  .writing-item a {
+  // Writing rows — override section's purple link color
+  .writing-row {
     color: $dark-color-text;
-    &:hover { color: #fff; }
+    &:hover { color: $dark-color-text; text-decoration: none; }
   }
 
   // Principles
@@ -1214,24 +1214,35 @@
 }
 
 .writing-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  &:first-child { border-top: 1px solid rgba(255, 255, 255, 0.08); }
+}
+
+.writing-row {
   display: flex;
   align-items: flex-start;
   gap: $space-md;
-  padding: $space-md 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.25rem 0;
+  text-decoration: none !important;
+  cursor: pointer;
 
-  &:last-child { border-bottom: none; }
+  &:hover {
+    text-decoration: none !important;
+  }
 
-  a {
-    font-family: $font-body;
-    font-size: $font-size-lg;
-    font-weight: 500;
-    color: $dark-color-text;
-    text-decoration: none;
+}
 
-    &:hover {
-      text-decoration: underline;
-    }
+.writing-title {
+  display: block;
+  font-family: $font-body;
+  font-size: $font-size-lg;
+  font-weight: 500;
+  color: $dark-color-text;
+  transition: color 0.2s ease;
+
+  .writing-row:hover & {
+    color: #fff;
   }
 }
 
@@ -1240,10 +1251,28 @@
   height: 28px;
   flex-shrink: 0;
   margin-top: 2px;
-  opacity: 0.75;
+  fill: #a78bfa;
+  transition: fill 0.2s ease;
+
+  .writing-row:hover & {
+    fill: #c4b5fd;
+  }
 }
 
-.writing-meta {
+.writing-subtitle {
+  font-size: $font-size-base;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: $space-xs;
+  margin-bottom: 0;
+  line-height: 1.5;
+  transition: color 0.2s ease;
+
+  .writing-row:hover & {
+    color: rgba(255, 255, 255, 0.75);
+  }
+}
+
+.writing-date {
   font-size: $font-size-sm;
   color: $dark-color-text-muted;
   margin-top: $space-xs;
