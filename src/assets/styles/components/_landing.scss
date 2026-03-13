@@ -420,6 +420,12 @@
   .section-intro    { color: $dark-color-text-muted; }
   .section-label    { color: #93c5fd; }
 
+  // Writing items — title link is white, not section purple
+  .writing-item a {
+    color: $dark-color-text;
+    &:hover { color: #fff; }
+  }
+
   // Principles
   .principle {
     background: rgba(255, 255, 255, 0.04);
@@ -1208,32 +1214,40 @@
 }
 
 .writing-item {
+  display: flex;
+  align-items: flex-start;
+  gap: $space-md;
   padding: $space-md 0;
-  border-bottom: 1px solid $color-border;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 
   &:last-child { border-bottom: none; }
 
   a {
-    font-family: $font-heading;
-    font-size: $font-size-xl;
-    font-weight: 400;
-    color: $color-text;
+    font-family: $font-body;
+    font-size: $font-size-lg;
+    font-weight: 500;
+    color: $dark-color-text;
+    text-decoration: none;
 
-    html[data-theme="dark"] & {
-      color: $dark-color-text;
+    &:hover {
+      text-decoration: underline;
     }
   }
 }
 
+.writing-icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  opacity: 0.75;
+}
+
 .writing-meta {
   font-size: $font-size-sm;
-  color: $color-text-muted;
+  color: $dark-color-text-muted;
   margin-top: $space-xs;
   margin-bottom: 0;
-
-  html[data-theme="dark"] & {
-    color: $dark-color-text-muted;
-  }
 }
 
 // Elsewhere links

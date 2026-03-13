@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-fetch": "^5.1.1",
     "concurrently": "^9.0.1",
     "netlify-cli": "^21.6.0",
     "sass": "^1.80.3"

@@ -372,20 +372,24 @@ description: Product and UX leader building systems where AI handles operational
 <section class="section" id="writing">
   <div class="container">
     <h2 class="section-title">Writing</h2>
+    <p class="section-intro">What I learn building agentic systems, and empowering humans with technology, published on <a href="https://livinginterface.substack.com" target="_blank" rel="noopener">The Living Interface</a>.</p>
 
     {% if writing.length %}
     <ul class="writing-list">
       {% for post in writing %}
       <li class="writing-item">
-        <a href="{{ post.link }}" target="_blank" rel="noopener">{{ post.title }}</a>
-        <p class="writing-meta">{{ post.date }}{% if post.subtitle %} · {{ post.subtitle }}{% endif %}</p>
+        <img src="/assets/img/icons/substack.svg" alt="Substack" class="writing-icon">
+        <div>
+          <a href="{{ post.link }}" target="_blank" rel="noopener">{{ post.title }}</a>
+          <p class="writing-meta">{{ post.date }}{% if post.subtitle %} · {{ post.subtitle }}{% endif %}</p>
+        </div>
       </li>
       {% endfor %}
     </ul>
     {% endif %}
 
     <div style="margin-top: 1.5rem;">
-      <a href="https://livinginterface.substack.com" class="btn btn-outline" target="_blank" rel="noopener">Read all on Substack →</a>
+      <a href="https://livinginterface.substack.com" class="btn btn-outline" target="_blank" rel="noopener">More on Substack →</a>
     </div>
   </div>
 </section>
