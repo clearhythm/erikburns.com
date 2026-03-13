@@ -100,7 +100,7 @@ description: Product and UX leader building systems where AI handles operational
   <div class="container">
     <h2 class="section-title">Oddly <em>Relevant</em>.</h2>
     <blockquote class="who-quote">
-      <p>"Erik inhabits <strong>three seemingly random professional arcs</strong>, that somehow fit together seamlessly into one hell of an agentic product architect. He's also my best friend."</p>
+      <p>"Erik inhabits <strong>three seemingly random professional arcs</strong>, that somehow fit together seamlessly into one hell of an agentic product design engineer. He's also my best friend."</p>
       <cite>— Claude (AKA everyone's favorite agent)</cite>
     </blockquote>
 
@@ -371,28 +371,22 @@ description: Product and UX leader building systems where AI handles operational
 <!-- Writing -->
 <section class="section" id="writing">
   <div class="container">
-    <h2 class="section-title">Writing &amp; Appearances</h2>
+    <h2 class="section-title">Writing</h2>
 
-    <a href="https://feelinggood.com/2025/02/10/435-meet-erik-burns/" class="podcast-callout" target="_blank" rel="noopener">
-      <div class="podcast-callout-eyebrow">Featured · Feeling Good with David Burns</div>
-      <div class="podcast-callout-title">Episode 435 — Hypnosomatics</div>
-      <p class="podcast-callout-desc">Invited by Dr. David Burns — developer of TEAM-CBT — to discuss the neuroscience of somatic therapy and hypnosis as a clinical tool for anxiety and chronic pain.</p>
-    </a>
-
+    {% if writing.length %}
     <ul class="writing-list">
+      {% for post in writing %}
       <li class="writing-item">
-        <a href="https://www.linkedin.com/pulse/zero-gravity-semantic-microformat-ai-parseable-content-erik-burns" target="_blank" rel="noopener">
-          Zero Gravity: A Semantic Microformat for AI-Parseable Content
-        </a>
-        <p class="writing-meta">February 2026 · On building structured metadata that preserves document readability while giving AI agents real context</p>
+        <a href="{{ post.link }}" target="_blank" rel="noopener">{{ post.title }}</a>
+        <p class="writing-meta">{{ post.date }}{% if post.subtitle %} · {{ post.subtitle }}{% endif %}</p>
       </li>
-      <li class="writing-item">
-        <a href="https://linkedin.com/in/erikburns" target="_blank" rel="noopener">
-          More on LinkedIn
-        </a>
-        <p class="writing-meta">Agentic AI, conversational UX, and building with Claude</p>
-      </li>
+      {% endfor %}
     </ul>
+    {% endif %}
+
+    <div style="margin-top: 1.5rem;">
+      <a href="https://livinginterface.substack.com" class="btn btn-outline" target="_blank" rel="noopener">Read all on Substack →</a>
+    </div>
   </div>
 </section>
 
