@@ -169,7 +169,7 @@
 }
 
 .sidemenu-left ul li {
-  padding: 0.4rem 0;
+  padding: 0.5rem 0;
   margin: 0;
 }
 
@@ -198,6 +198,24 @@
 
 .sidemenu-left footer {
   padding: 2rem 0;
+}
+
+.sidemenu-footer-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  .sidemenu-logo {
+    margin-bottom: 0;
+  }
+}
+
+.sidemenu-copyright {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 0;
+  line-height: 1.4;
+  user-select: none;
 }
 
 .sidemenu-logo-link {
