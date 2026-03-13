@@ -1655,6 +1655,8 @@
 
   .page-dark & {
     background: linear-gradient(to bottom, #080d17, #1a1030);
+    min-height: unset;
+    padding: 9rem 0 4rem;
   }
 
   .case-study-lotus {
