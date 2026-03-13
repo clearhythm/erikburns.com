@@ -1,0 +1,209 @@
+---
+layout: base.njk
+title: HabitualOS — Case Study · Erik Burns
+description: An open-source agentic AI platform built and used daily. Three production apps exploring how AI agents can handle operational work while preserving human judgment.
+prevUrl: /work/healify
+prevTitle: Healify
+nextUrl: /work/realtorcom
+nextTitle: Realtor.com
+---
+
+<div class="case-study-hero">
+  <div class="container">
+    <img src="https://habitualos.com/assets/images/habitualos_vortex2.png" alt="HabitualOS" class="case-study-logo">
+    <h1 class="case-study-title">HabitualOS</h1>
+    <p class="case-study-subtitle">
+      An open-source agentic AI platform — built and used daily as a personal research
+      environment and modular prototyping kit for shipping agentic apps fast.
+    </p>
+    <div class="case-study-stats">
+      <div class="featured-stat">
+        <span class="featured-stat-num">5</span>
+        <span class="featured-stat-label">apps in production</span>
+      </div>
+      <div class="featured-stat">
+        <span class="featured-stat-num">Jan '26</span>
+        <span class="featured-stat-label">first app launched</span>
+      </div>
+      <div class="featured-stat">
+        <span class="featured-stat-num">Claude</span>
+        <span class="featured-stat-label">API backbone</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- What It Is -->
+<section class="section" id="what">
+  <div class="container">
+    <h2 class="section-title">What It Is</h2>
+    <div class="case-study-prose">
+      <p>
+        HabitualOS is an open-source agentic AI platform and the monorepo I build on.
+        It functions as both a personal research environment — my own life as the test
+        environment — and a modular prototyping kit for shipping agentic apps quickly.
+        The shared infrastructure, auth patterns, and typed communication protocol mean
+        each new app starts from a proven base rather than from scratch.
+      </p>
+      <p>
+        The core question driving it: how can AI agents handle operational work while
+        preserving human judgment and agency? Not AI that does everything. Not AI as
+        autocomplete. Specialized agents with constrained behavior, operating within
+        defined contexts, handling the overhead that burns cognitive cycles so attention
+        stays where it actually matters.
+      </p>
+      <div class="case-study-callout">
+        <p>
+          The finding so far: agents designed within narrow contexts are far more useful
+          than ones that can do anything. Constraints aren't a limitation — they're what
+          makes the behavior trustworthy enough to rely on.
+        </p>
+      </div>
+      <p>
+        Five apps test this across different dimensions of daily life — productivity,
+        practice, relationship, professional networking, and semantic content infrastructure. Each was built rapidly on the same stack. Each has
+        surfaced different design problems specific to its context. That variation is
+        the research.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- The Apps -->
+<section class="section" id="apps">
+  <div class="container">
+    <h2 class="section-title">The Apps</h2>
+    <div class="habitual-apps-list">
+
+      <div class="habitual-app">
+        <div class="habitual-app-header">
+          <img src="/assets/img/apps/habitual.png" alt="Habitual" class="habitual-app-icon">
+          <div>
+            <h3 class="habitual-app-name">Habitual</h3>
+            <p class="habitual-app-role">Agentic daily productivity &amp; executive function support</p>
+          </div>
+        </div>
+        <div class="case-study-prose">
+          <p>
+            The orchestration layer. Specialized agents handle scheduling, task management,
+            and daily check-ins, coordinating through a typed signal protocol. Conversational
+            UX for creating and organizing work — no forms, no dashboards. Long-context memory
+            means sessions pick up where the last one left off.
+          </p>
+          <p>
+            Built specifically for executive function support: the kind of operational overhead
+            that burns cognitive cycles when done manually and can be reliably handled by a
+            constrained AI agent.
+          </p>
+        </div>
+        <div class="habitual-app-tags">
+          <span class="agent-tag">Multi-agent orchestration</span>
+          <span class="agent-tag">Typed signal protocol</span>
+          <span class="agent-tag">Long-context memory</span>
+          <span class="agent-tag">Conversational UX</span>
+        </div>
+      </div>
+
+      <div class="habitual-app">
+        <div class="habitual-app-header">
+          <img src="/assets/img/apps/daily-practice.svg" alt="Daily Practice" class="habitual-app-icon habitual-app-icon--svg">
+          <div>
+            <h3 class="habitual-app-name">Daily Practice</h3>
+            <p class="habitual-app-role">Habit &amp; practice tracking with AI pattern insights</p>
+          </div>
+        </div>
+        <div class="case-study-prose">
+          <p>
+            Built in a single day on New Year's Eve 2024. The simplest app in the suite —
+            and the one I use most. Tracks daily practice streaks and generates AI-driven
+            insights about patterns over time.
+          </p>
+          <p>
+            The insight that drove it: I'd been thinking about building a practice tracking
+            layer for two years, always waiting until it was the "right time." Building it
+            in one day with AI-assisted development was proof of concept for the whole
+            HabitualOS approach. It's currently driving a 30-day consecutive daily
+            practice streak.
+          </p>
+        </div>
+        <div class="habitual-app-tags">
+          <span class="agent-tag">Practice tracking</span>
+          <span class="agent-tag">AI pattern insights</span>
+          <span class="agent-tag">Claude API</span>
+          <span class="agent-tag">Firestore</span>
+        </div>
+      </div>
+
+      <div class="habitual-app">
+        <div class="habitual-app-header">
+          <img src="/assets/img/apps/pidgerton.png" alt="Pidgerton" class="habitual-app-icon">
+          <div>
+            <h3 class="habitual-app-name">Pidgerton</h3>
+            <p class="habitual-app-role">Relationship support for two people</p>
+          </div>
+        </div>
+        <div class="case-study-prose">
+          <p>
+            Built for my wife and me during the fog of new parenthood — low on sleep and
+            curious whether AI could help two people who love each other actually hear each
+            other better. A shared journal where we log moments through chat (good, bad, or
+            hard) and get emotional support when we need it.
+          </p>
+          <p>
+            Over time, it finds patterns in what we share and helps us find our way back
+            to each other. This is the highest-stakes AI context I work in — emotional,
+            relational, real. It has taught me more about what "helpful AI" means in
+            practice than anything else I've built.
+          </p>
+          <div class="case-study-callout">
+            <p>
+              High-stakes conversational AI in emotional context is a different discipline
+              than productivity tooling. The failure modes are different. The trust bar is
+              higher. The design constraints are harder.
+            </p>
+          </div>
+        </div>
+        <div class="habitual-app-tags">
+          <span class="agent-tag">Temporal pattern recognition</span>
+          <span class="agent-tag">Privacy-first</span>
+          <span class="agent-tag">User-partitioned data</span>
+          <span class="agent-tag">Emotional AI</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Architecture -->
+<section class="section" id="architecture">
+  <div class="container">
+    <h2 class="section-title">The Stack</h2>
+    <div class="case-study-prose">
+      <p>
+        All five apps share the same infrastructure layer. The monorepo structure means
+        shared utilities, shared auth patterns, and a common privacy model — every user's
+        data lives in its own namespace. Building a new app means wiring up context and
+        behavior, not rebuilding plumbing.
+      </p>
+      <p>
+        The typed signal protocol is the architectural decision I keep coming back to.
+        Rather than letting agents produce and consume freeform text, inter-agent
+        communication follows defined schemas. This makes agent behavior predictable
+        enough to trust and debug — and it forces you to be explicit about what each
+        agent is actually responsible for, which turns out to be most of the design work.
+      </p>
+      <ul>
+        <li><strong>Claude API</strong> — tool use, structured outputs, streaming, prompt caching</li>
+        <li><strong>Multi-agent orchestration</strong> — typed signal protocol, long-context memory</li>
+        <li><strong>Google Firestore</strong> — user-partitioned, privacy-first data storage</li>
+        <li><strong>Netlify Functions</strong> — serverless agent workflows and data pipelines</li>
+        <li><strong>Node.js</strong> — orchestration and protocol implementation</li>
+        <li><strong>11ty + Markdown</strong> — semantic indexing and local-first content architecture</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+{% include "case-study-nav.njk" %}
+

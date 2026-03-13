@@ -529,7 +529,7 @@
   font-family: $font-body;
   font-size: 2.25rem;
   font-weight: 500;
-  margin-bottom: $space-xs;
+  margin-bottom: $space-md;
   line-height: 1.2;
   color: $color-text;
 
@@ -820,7 +820,7 @@
 // ─── Professional Focus ───────────────────────────────────────────────────────
 
 .who-quote {
-  margin: $space-xl 0 $space-xl;
+  margin: $space-md 0 $space-xl;
   max-width: 680px;
   border: none;
   padding: $space-sm 0 $space-sm $space-xl;
@@ -1534,6 +1534,70 @@
 }
 
 // Case study page
+// ─── HabitualOS app list (case study page) ─────────────────────────────────
+
+.habitual-apps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: $space-xl;
+}
+
+.habitual-app {
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+
+.habitual-app-header {
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+}
+
+.habitual-app-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  flex-shrink: 0;
+  object-fit: contain;
+
+  &--svg {
+    background: rgba(52, 211, 153, 0.12);
+    padding: 8px;
+  }
+}
+
+.habitual-app-name {
+  font-family: $font-heading;
+  font-size: $font-size-2xl;
+  color: $dark-color-text;
+  margin: 0 0 0.2rem;
+}
+
+.habitual-app-role {
+  font-family: $font-body;
+  font-size: $font-size-sm;
+  color: rgba(167, 139, 250, 0.75);
+  font-weight: 500;
+  margin: 0;
+}
+
+.habitual-app-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+// ─── Case study hero ────────────────────────────────────────────────────────
+
 .case-study-hero {
   min-height: 100dvh;
   display: flex;
@@ -1554,6 +1618,15 @@
     @media (min-width: $breakpoint-md) {
       margin-top: 0;
     }
+  }
+
+  .case-study-logo {
+    display: block;
+    max-height: 72px;
+    max-width: 260px;
+    width: auto;
+    object-fit: contain;
+    margin: 2rem 0 $space-xl;
   }
 }
 
@@ -1797,6 +1870,281 @@
   html[data-theme="dark"] & {
     color: $dark-color-text-muted;
   }
+}
+
+// ─── Agents in Production ──────────────────────────────────────────────────
+
+.agents-grid {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: $space-xl;
+  grid-template-columns: 1fr;
+
+  @media (min-width: $breakpoint-md) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.agent-card {
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+  padding: $space-xl;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  text-decoration: none !important;
+  transition: border-color 0.2s, transform 0.2s, background 0.2s;
+
+  &:hover, &:active, &:focus {
+    text-decoration: none !important;
+    border-color: rgba(167, 139, 250, 0.45);
+    background: rgba(255, 255, 255, 0.06);
+    transform: translateY(-2px);
+  }
+}
+
+.agent-card-header {
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+}
+
+.agent-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  object-fit: contain;
+
+  &--svg {
+    background: rgba(52, 211, 153, 0.12);
+    padding: 6px;
+  }
+}
+
+.agent-card-name {
+  font-family: $font-heading;
+  font-size: $font-size-xl;
+  color: $dark-color-text;
+  margin: 0 0 0.1rem;
+  line-height: 1.2;
+}
+
+.agent-card-tagline {
+  font-family: $font-body;
+  font-size: $font-size-sm;
+  color: rgba(167, 139, 250, 0.75);
+  margin: 0;
+  font-weight: 500;
+}
+
+.agent-card-desc {
+  font-size: $font-size-sm;
+  color: $dark-color-text-muted;
+  line-height: 1.65;
+  margin: 0;
+  flex: 1;
+}
+
+.agent-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: auto;
+}
+
+.agent-tag {
+  font-family: $font-body;
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: rgba(196, 181, 253, 0.75);
+  background: rgba(167, 139, 250, 0.08);
+  border: 1px solid rgba(167, 139, 250, 0.18);
+  border-radius: 100px;
+  padding: 0.2rem 0.65rem;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+// ─── Case study prev/next nav ───────────────────────────────────────────────
+
+.cs-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 2rem;
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  a {
+    font-family: $font-body;
+    font-size: $font-size-sm;
+    font-weight: 500;
+    color: $dark-color-text-muted;
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $dark-color-text;
+      text-decoration: none;
+    }
+  }
+}
+
+.cs-nav-prev,
+.cs-nav-next {
+  &:hover {
+    color: rgba(167, 139, 250, 0.9) !important;
+  }
+}
+
+.cs-nav-home {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.4;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+// ─── Case study cards ───────────────────────────────────────────────────────
+
+.case-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: $space-xl;
+}
+
+.case-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: border-color 0.2s, background 0.2s;
+
+  @media (min-width: $breakpoint-md) {
+    grid-template-columns: 2fr 3fr;
+  }
+
+  &:hover {
+    border-color: rgba(167, 139, 250, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
+
+.case-card-media {
+  background: rgba(0, 0, 0, 0.25);
+  padding: $space-md;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  .screenshot-gallery {
+    width: 100%;
+  }
+
+  .screenshot-main {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 8px;
+    margin-bottom: $space-sm;
+    cursor: zoom-in;
+
+    @media (min-width: $breakpoint-md) {
+      height: 260px;
+    }
+  }
+}
+
+.case-card-content {
+  padding: $space-xl;
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+  text-decoration: none !important;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none !important;
+  }
+
+  &:hover .case-card-cta {
+    text-decoration: underline;
+    color: rgba(167, 139, 250, 1);
+  }
+}
+
+.case-card-company {
+  font-family: $font-heading;
+  font-size: $font-size-2xl;
+  color: $dark-color-text;
+  margin: 0 0 0.15rem;
+  line-height: 1.2;
+}
+
+.case-card-role {
+  font-family: $font-body;
+  font-size: $font-size-sm;
+  color: rgba(167, 139, 250, 0.75);
+  margin: 0;
+  font-weight: 500;
+}
+
+.case-card-stats {
+  display: flex;
+  gap: $space-lg;
+  flex-wrap: wrap;
+}
+
+.case-card-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.case-card-stat-num {
+  font-family: $font-heading;
+  font-size: $font-size-xl;
+  font-weight: 700;
+  color: $dark-color-text;
+  line-height: 1.1;
+}
+
+.case-card-stat-label {
+  font-size: 0.7rem;
+  color: $dark-color-text-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+.case-card-desc {
+  font-size: $font-size-sm;
+  color: $dark-color-text-muted;
+  line-height: 1.65;
+  margin: 0;
+  flex: 1;
+}
+
+.case-card-cta {
+  display: inline-block;
+  font-size: $font-size-sm;
+  font-weight: 600;
+  color: rgba(167, 139, 250, 0.85);
+  margin-top: auto;
 }
 
 // ─── Signal widget ─────────────────────────────────────────────────────────
@@ -2108,7 +2456,7 @@ a:has(.signal-footer-icon) {
 // Signal layout
 .signal-layout {
   display: grid;
-  gap: 2rem;
+  gap: 0rem 2rem;
 
   @media (min-width: $breakpoint-md) {
     grid-template-columns: 1fr 1fr;
@@ -2120,15 +2468,9 @@ a:has(.signal-footer-icon) {
 .signal-left {
   display: flex;
   flex-direction: column;
-  gap: $space-xl;
-}
+  justify-content: center;
 
-.signal-text {
-  display: flex;
-  flex-direction: column;
-  gap: $space-lg;
-
-  .section-intro { margin-bottom: 0; }
+  .section-intro { margin-bottom: $space-lg; }
 }
 
 .signal-card-top {
@@ -2156,11 +2498,13 @@ a:has(.signal-footer-icon) {
   border-radius: 0;
   padding: 2rem 2rem 2rem;
   cursor: pointer;
+  margin-bottom: 2rem;
 
   @media (min-width: $breakpoint-md) {
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(196, 181, 253, 0.2);
     border-radius: 16px;
+    margin-bottom: 0rem;
   }
 
   &:hover .signal-ring circle {
