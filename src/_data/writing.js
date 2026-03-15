@@ -1,5 +1,5 @@
-const SECTION_FEED = 'https://livinginterface.substack.com/s/agentic-systems/feed';
-const FULL_FEED    = 'https://livinginterface.substack.com/feed';
+const FULL_FEED      = 'https://livinginterface.substack.com/feed';
+const CUTOFF_DATE    = new Date('Thu, 05 Mar 2026 05:51:29 GMT');
 
 function decodeEntities(str) {
   return str
@@ -20,7 +20,7 @@ async function parseFeed(url) {
   const itemRegex = /<item>([\s\S]*?)<\/item>/g;
   let match;
 
-  while ((match = itemRegex.exec(xml)) !== null && items.length < 3) {
+  while ((match = itemRegex.exec(xml)) !== null) {
     const block = match[1];
 
     const title =
@@ -35,11 +35,12 @@ async function parseFeed(url) {
       block.match(/<description><!\[CDATA\[([\s\S]*?)\]\]><\/description>/)?.[1]?.trim() ||
       block.match(/<description>([\s\S]*?)<\/description>/)?.[1]?.trim() || '';
 
-    if (title && link) {
-      const date = pubDate
-        ? new Date(pubDate).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
-        : '';
+    if (title && link && pubDate) {
+      const parsedDate = new Date(pubDate);
+      if (parsedDate < CUTOFF_DATE) break;
+      const date = parsedDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
       items.push({ title: decodeEntities(title), link, date, subtitle: decodeEntities(subtitle) });
+      if (items.length >= 3) break;
     }
   }
 
@@ -48,10 +49,6 @@ async function parseFeed(url) {
 
 module.exports = async function () {
   try {
-    const items = await parseFeed(SECTION_FEED);
-    if (items.length > 0) return items;
-
-    console.log('[writing.js] Section feed empty or unavailable, falling back to full feed');
     return await parseFeed(FULL_FEED);
   } catch (e) {
     console.warn('[writing.js] Failed to fetch Substack feed:', e.message);

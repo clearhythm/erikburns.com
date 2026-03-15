@@ -45,7 +45,11 @@
   <script>
     (function () {
       var html = document.documentElement;
-      var isDark = document.body.classList.contains('page-dark');
+      // Time-based dark mode: 7pm (19) to 5am (5) in visitor's local timezone
+      var hour = new Date().getHours();
+      var isNight = hour >= 19 || hour < 5;
+      if (isNight) html.setAttribute('data-theme', 'dark');
+      var isDark = document.body.classList.contains('page-dark') || isNight;
       var TOP_COLOR = isDark ? '#080d17' : '#f0f4ff';
       var BOTTOM_COLOR = '#080d17';
       function update() {

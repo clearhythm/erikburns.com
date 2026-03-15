@@ -75,22 +75,22 @@
   flex-shrink: 0;
 }
 
-// Dark-page navbar overrides (inner pages with hardcoded dark bg)
-.page-dark .navbar-brand {
+// Dark-page navbar overrides (inner pages with hardcoded dark bg, or time-based dark mode)
+.page-dark .navbar-brand,
+html[data-theme="dark"] .navbar-brand {
   color: rgba(255, 255, 255, 0.9);
 }
 
-.page-dark .sidemenu .toggle span {
+.page-dark .sidemenu .toggle span,
+html[data-theme="dark"] .sidemenu .toggle span {
   background: rgba(255, 255, 255, 0.85);
 }
 
-// On scroll, navbar goes white — flip text/icons back to dark
-.page-dark .navbar.active .navbar-brand {
-  color: #111;
-}
-
-.page-dark .navbar.active .sidemenu .toggle span {
-  background: #333;
+// On scroll in dark mode — stay dark, keep text white
+.page-dark .navbar.active,
+html[data-theme="dark"] .navbar.active {
+  background-color: #080d17;
+  border-bottom-color: rgba(255, 255, 255, 0.08);
 }
 
 // Hamburger toggle
