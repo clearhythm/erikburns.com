@@ -410,7 +410,7 @@
   padding: 3.5rem 0 4rem;
   margin-top: 0;
   scroll-margin-top: 80px;
-  background: #0f172a;
+  background: #0d0e1f;
   color: $dark-color-text-muted;
   border-top: 1px solid rgba(255, 255, 255, 0.07);
 
@@ -425,12 +425,12 @@
 }
 
 .section:nth-child(odd) {
-  background: #1e293b;
+  background: #17142e;
   border-top: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 .section:nth-child(even) {
-  background: #0f172a;
+  background: #0d0e1f;
   border-top: 1px solid rgba(255, 255, 255, 0.07);
 }
 
