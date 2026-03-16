@@ -2105,9 +2105,18 @@
   border-radius: 16px;
   overflow: hidden;
   transition: border-color 0.2s, background 0.2s;
+  text-decoration: none;
+  cursor: pointer;
 
   @media (min-width: $breakpoint-md) {
     grid-template-columns: 2fr 3fr;
+  }
+
+  &,
+  &:hover,
+  &:focus,
+  &:hover * {
+    text-decoration: none !important;
   }
 
   &:hover {
@@ -2143,6 +2152,14 @@
   padding: $space-2xl;
 }
 
+.case-card-wordmark {
+  font-family: $font-body;
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: -0.01em;
+}
+
 .case-card-logo {
   max-width: 75%;
   max-height: 64px;
@@ -2162,17 +2179,6 @@
   display: flex;
   flex-direction: column;
   gap: $space-md;
-  text-decoration: none !important;
-  cursor: pointer;
-
-  &:hover {
-    text-decoration: none !important;
-  }
-
-  &:hover .case-card-cta {
-    text-decoration: underline;
-    color: rgba(167, 139, 250, 1);
-  }
 }
 
 .case-card-company {
@@ -2181,6 +2187,11 @@
   color: $dark-color-text;
   margin: 0 0 0.15rem;
   line-height: 1.2;
+  text-decoration: none;
+
+  .case-card:hover & {
+    text-decoration: none;
+  }
 }
 
 .case-card-role {
@@ -2204,18 +2215,18 @@
 
 .case-card-stat-num {
   font-family: $font-heading;
-  font-size: $font-size-xl;
+  font-size: 2rem;
   font-weight: 700;
   color: $dark-color-text;
   line-height: 1.1;
 }
 
 .case-card-stat-label {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   color: $dark-color-text-muted;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-weight: 500;
+  letter-spacing: 0.07em;
+  font-weight: 600;
 }
 
 .case-card-desc {
