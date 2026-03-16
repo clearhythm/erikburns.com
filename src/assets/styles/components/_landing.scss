@@ -888,7 +888,7 @@
     height: 16px;
     object-fit: contain;
     display: block;
-    opacity: 0.7;
+    opacity: 0.85;
   }
 }
 
@@ -929,7 +929,7 @@
   font-size: 1.125rem;
   color: rgba(255, 255, 255, 0.55);
   margin: $space-xl 0 $space-sm;
-  max-width: 480px;
+  max-width: 640px;
 
   @media (min-width: $breakpoint-md) {
     display: block;
@@ -3091,13 +3091,13 @@ a:has(.signal-footer-icon) {
 
 // Signal section — more vertical breathing room
 #signal.section {
-  padding: 6rem 0 7rem;
+  padding: 4rem 0 4.5rem;
   box-shadow:
     inset 0 24px 48px -8px rgba(0, 0, 0, 0.8),
     inset 0 -24px 48px -8px rgba(0, 0, 0, 0.8);
 
   @media (min-width: $breakpoint-md) {
-    padding: 8rem 0 9rem;
+    padding: 5rem 0 6rem;
   }
 }
 
