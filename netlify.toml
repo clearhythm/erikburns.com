@@ -11,3 +11,4 @@
   targetPort = 8080
   autoLaunch = false
   publish = "dist"
+
