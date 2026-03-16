@@ -12,21 +12,21 @@
   autoLaunch = false
   publish = "dist"
 
-[[redirects]]
-  from = "/what"
-  to = "/"
-  status = 302
-  force = true
+# [[redirects]]
+#   from = "/what"
+#   to = "/"
+#   status = 302
+#   force = true
 
-[[redirects]]
-  from = "/agentic"
-  to = "/"
-  status = 302
-  force = true
+# [[redirects]]
+#   from = "/agentic"
+#   to = "/"
+#   status = 302
+#   force = true
 
-[[redirects]]
-  from = "/work/*"
-  to = "/"
-  status = 302
-  force = true
+# [[redirects]]
+#   from = "/work/*"
+#   to = "/"
+#   status = 302
+#   force = true
 
