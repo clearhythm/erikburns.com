@@ -5,20 +5,92 @@ description: From neuroscience at Stanford to clinical practice to production ag
 pageClass: page-dark
 ---
 
-<!-- Background Hero -->
-<div class="case-study-hero bg-hero--conf">
-  <div class="container">
-    <div class="bg-hero-split">
-      <div class="bg-hero-content">
-        <h1 class="case-study-title">Dig Deeper</h1>
-        <p class="case-study-subtitle">
-          "Technology is finally moving at the speed of thought. Now we can grow more connective human skills: delegation, creativity, and embodiment."
-        </p>
-      </div>
-      <div class="bg-hero-photo">&nbsp;</div>
-    </div>
+<!-- Page Intro -->
+<div class="page-intro">
+  <div class="container page-intro-content">
+    <h1 class="page-intro-title">What I Do</h1>
+    <p class="page-intro-sub">Twenty years building products. A lifetime studying human behavior. Now building with AI. Three arcs, one through-line.</p>
   </div>
 </div>
+
+<!-- Professional Background -->
+<section class="section" id="who">
+  <div class="container">
+    <h2 class="section-title">My Experience</h2>
+
+    <div class="who-layout">
+
+      <div class="who-svg-wrap">
+        <svg class="who-svg" viewBox="0 0 530 490" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three professional domains">
+
+          <g class="who-circle-group active" data-domain="product" tabindex="0" role="button" aria-label="Product &amp; UX" id="product-ux">
+            <circle class="who-circle" cx="170" cy="200" r="130"/>
+            <path class="who-callout" d="M 170 70 L 170 35 L 80 35"/>
+            <text class="who-callout-label" x="77" y="31" text-anchor="end">Product</text>
+            <text class="who-callout-label" x="77" y="46" text-anchor="end">&amp; UX</text>
+          </g>
+
+          <g class="who-circle-group" data-domain="science" tabindex="0" role="button" aria-label="Health Science" id="health-science">
+            <circle class="who-circle" cx="360" cy="200" r="130"/>
+            <path class="who-callout" d="M 360 70 L 360 35 L 450 35"/>
+            <text class="who-callout-label" x="453" y="31" text-anchor="start">Health</text>
+            <text class="who-callout-label" x="453" y="46" text-anchor="start">Science</text>
+          </g>
+
+          <g class="who-circle-group" data-domain="ai" tabindex="0" role="button" aria-label="Agentic AI" id="agentic-ai">
+            <circle class="who-circle" cx="265" cy="315" r="130"/>
+            <path class="who-callout" d="M 265 445 L 265 468 L 355 468"/>
+            <text class="who-callout-label" x="358" y="472" text-anchor="start">Agentic AI</text>
+          </g>
+
+        </svg>
+      </div>
+
+      <div class="who-desc-wrap">
+        <div class="who-desc" data-domain="science">
+          <p class="who-desc-name">Health Science</p>
+          <p class="who-desc-body">I studied biological sciences at <a href="http://stanford.edu/">Stanford</a>, and ranked first in my class, achieving a <a href="https://www.beckman-foundation.org/programs/beckman-scholars/">Beckman scholarship</a> for my <a href="https://www.jneurosci.org/content/19/19/8630.short">published work</a> in neuroscience and electrophysiology. I went on to found <a href="https://www.healifyapp.com/">Healify</a> and eventually worked directly with patients as a <a href="https://www.bloomharmony.org/">somatic therapist</a>, treating chronic pain and anxiety. The science of how humans actually change has become both my academic foundation and how I approach all of my professional work.</p>
+        </div>
+        <div class="who-desc active" data-domain="product">
+          <p class="who-desc-name">Product &amp; UX Design</p>
+          <p class="who-desc-body">I spent twenty years building consumer and enterprise products for popular brands such as <a href="http://apple.com/">Apple</a>, <a href="http://intuit.com/">Intuit</a>, <a href="https://www.realtor.com/">Realtor.com</a>, and <a href="https://www.capitalone.com/">Capital One</a>, reaching over 100 million users. I drove results and won awards: a 14% increase in paid conversions at Realtor.com ($45M incremental revenue), 20% fewer support calls at Intuit, and 300% ROI lift for Capital One. I learned how to optimize for KPIs, but even more importantly, how to ask the right questions.</p>
+        </div>
+        <div class="who-desc" data-domain="ai">
+          <p class="who-desc-name">Agentic AI</p>
+          <p class="who-desc-body">Agentic AI <em>is new to all of us</em>. But after I got over the initial shock of realizing it could <a href="https://finance.yahoo.com/news/anthropic-ceo-predicts-ai-models-233113047.html">fully automate my job</a>, I started getting innovative with it. Agentic AI now feels like a natural evolution of my career, the co-creative ally I have been seeking all along. I started designing, building, and architecting <a href="https://habitualos.com/">applications with AI</a> nearly full-time in 2024, and have been on a mission ever since: <strong><em>to extend human capacity in everyday life</em></strong> in deep partnership with AI.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  const groups = document.querySelectorAll('#who .who-circle-group');
+  const panels = document.querySelectorAll('#who .who-desc');
+  function activate(domain) {
+    const already = document.querySelector('#who .who-circle-group.active');
+    if (already && already.dataset.domain === domain) return;
+    groups.forEach(g => {
+      if (g.dataset.domain === domain) {
+        g.classList.remove('active');
+        g.parentNode.appendChild(g);
+        requestAnimationFrame(() => requestAnimationFrame(() => g.classList.add('active')));
+      } else {
+        g.classList.remove('active');
+      }
+    });
+    panels.forEach(p => p.classList.toggle('active', p.dataset.domain === domain));
+  }
+  groups.forEach(g => {
+    g.addEventListener('click', () => activate(g.dataset.domain));
+    g.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') activate(g.dataset.domain); });
+  });
+  const defaultActive = document.querySelector('#who .who-circle-group.active');
+  if (defaultActive) defaultActive.parentNode.appendChild(defaultActive);
+})();
+</script>
 
 <!-- How I Work: Process -->
 <section class="section" id="process">
@@ -26,74 +98,54 @@ pageClass: page-dark
     <h2 class="section-title">How I Work</h2>
     <p class="section-intro">From first conversation to production. How a typical engagement actually goes.</p>
 
-    <div class="process-flow">
-      <div class="process-step active" data-step="assessment" tabindex="0" role="button" aria-label="Discovery">
-        <div class="process-step-num">01</div>
-        <div class="process-step-name">Discovery</div>
-      </div>
-      <div class="process-connector" aria-hidden="true"></div>
-      <div class="process-step" data-step="creative" tabindex="0" role="button" aria-label="Creative Sessions">
-        <div class="process-step-num">02</div>
-        <div class="process-step-name">Creative Sessions</div>
-      </div>
-      <div class="process-connector" aria-hidden="true"></div>
-      <div class="process-step" data-step="prototyping" tabindex="0" role="button" aria-label="Rapid Prototyping">
-        <div class="process-step-num">03</div>
-        <div class="process-step-name">Rapid Prototyping</div>
-      </div>
-      <div class="process-connector" aria-hidden="true"></div>
-      <div class="process-step" data-step="research" tabindex="0" role="button" aria-label="Research">
-        <div class="process-step-num">04</div>
-        <div class="process-step-name">Research</div>
-      </div>
-      <div class="process-connector" aria-hidden="true"></div>
-      <div class="process-step" data-step="production" tabindex="0" role="button" aria-label="Production Integration">
-        <div class="process-step-num">05</div>
-        <div class="process-step-name">Production Integration</div>
-      </div>
-    </div>
+    <div class="process-layout">
 
-    <div class="process-panels">
-      <div class="process-panel active" data-step="assessment">
-        <h3 class="process-panel-title">Discovery</h3>
-        <p class="process-panel-body">Before any creative work, I want to understand the real problem — not just the brief. That means conversations with stakeholders, reviewing existing data, and identifying where the stated need and the actual need diverge. This is often where the most valuable work happens.</p>
-        <blockquote class="process-testimonial">
-          <p class="process-testimonial-quote">"Erik has a knack for asking probing questions that get to the heart of an issue."</p>
-          <cite class="process-testimonial-cite">— Roger Hoover, <a href="https://www.parc.com" target="_blank" rel="noopener">Xerox PARC</a></cite>
-        </blockquote>
+      <div class="process-steps-col">
+        <div class="process-step active" data-step="assessment" tabindex="0" role="button" aria-label="Discovery">
+          <span class="process-step-num">01</span>
+          <span class="process-step-name">Discovery</span>
+        </div>
+        <div class="process-step" data-step="creative" tabindex="0" role="button" aria-label="Creative Sessions">
+          <span class="process-step-num">02</span>
+          <span class="process-step-name">Creative Sessions</span>
+        </div>
+        <div class="process-step" data-step="prototyping" tabindex="0" role="button" aria-label="Rapid Prototyping">
+          <span class="process-step-num">03</span>
+          <span class="process-step-name">Rapid Prototyping</span>
+        </div>
+        <div class="process-step" data-step="research" tabindex="0" role="button" aria-label="Research">
+          <span class="process-step-num">04</span>
+          <span class="process-step-name">Research</span>
+        </div>
+        <div class="process-step" data-step="production" tabindex="0" role="button" aria-label="Production Integration">
+          <span class="process-step-num">05</span>
+          <span class="process-step-name">Production Integration</span>
+        </div>
       </div>
-      <div class="process-panel" data-step="creative">
-        <h3 class="process-panel-title">Creative Sessions</h3>
-        <p class="process-panel-body">Collaborative working sessions where I bring initial concepts and provocations. Fast, generative, no polish. The goal is to find the direction worth pursuing, not to present finished thinking.</p>
-        <blockquote class="process-testimonial">
-          <p class="process-testimonial-quote">"Erik Burns is a game changing UX & innovation thought leader. Erik's interaction style helps inspire the cross functional team."</p>
-          <cite class="process-testimonial-cite">— UV Mathoda, <a href="https://www.realtor.com" target="_blank" rel="noopener">Realtor.com</a></cite>
-        </blockquote>
+
+      <div class="process-panels-col">
+        <div class="process-panel active" data-step="assessment">
+          <h3 class="process-panel-title">Discovery</h3>
+          <p class="process-panel-body">Before any creative work, I want to understand the real problem — not just the brief. That means conversations with stakeholders, reviewing existing data, and identifying where the stated need and the actual need diverge. This is often where the most valuable work happens.</p>
+        </div>
+        <div class="process-panel" data-step="creative">
+          <h3 class="process-panel-title">Creative Sessions</h3>
+          <p class="process-panel-body">Collaborative working sessions where I bring initial concepts and provocations. Fast, generative, no polish. The goal is to find the direction worth pursuing, not to present finished thinking.</p>
+        </div>
+        <div class="process-panel" data-step="prototyping">
+          <h3 class="process-panel-title">Rapid Prototyping</h3>
+          <p class="process-panel-body">With agentic tools, I can move from concept to working prototype in hours. This collapses the feedback loop dramatically — instead of reviewing wireframes, teams can react to something real. That speed isn't just efficiency; it changes what questions you can ask.</p>
+        </div>
+        <div class="process-panel" data-step="research">
+          <h3 class="process-panel-title">Stakeholder & End User Research</h3>
+          <p class="process-panel-body">Validation that runs alongside building, not after it. Qualitative interviews, usability sessions, and stakeholder alignment checks woven into the process rather than bolted on at the end. The most expensive mistake in product is solving the wrong problem with precision.</p>
+        </div>
+        <div class="process-panel" data-step="production">
+          <h3 class="process-panel-title">Production Integration</h3>
+          <p class="process-panel-body">I can take work all the way to production — code, agents, APIs. No handoff required unless the team wants one. The best outcome is something live that real people use, not a deck that describes what it could be.</p>
+        </div>
       </div>
-      <div class="process-panel" data-step="prototyping">
-        <h3 class="process-panel-title">Rapid Prototyping</h3>
-        <p class="process-panel-body">With agentic tools, I can move from concept to working prototype in hours. This collapses the feedback loop dramatically — instead of reviewing wireframes, teams can react to something real. That speed isn't just efficiency; it changes what questions you can ask.</p>
-        <blockquote class="process-testimonial">
-          <p class="process-testimonial-quote">"Erik is a rare gem; he is not only a prolific designer, but also a good front end developer, which allows him to quickly build compelling web applications."</p>
-          <cite class="process-testimonial-cite">— Mihir Nanavati, <a href="http://hightail.com" target="_blank" rel="noopener">Hightail</a></cite>
-        </blockquote>
-      </div>
-      <div class="process-panel" data-step="research">
-        <h3 class="process-panel-title">Stakeholder & End User Research</h3>
-        <p class="process-panel-body">Validation that runs alongside building, not after it. Qualitative interviews, usability sessions, and stakeholder alignment checks woven into the process rather than bolted on at the end. The most expensive mistake in product is solving the wrong problem with precision.</p>
-        <blockquote class="process-testimonial">
-          <p class="process-testimonial-quote">"Erik utilizes targeted research to optimize online user experience and create valuable interactions with brands and products through online applications."</p>
-          <cite class="process-testimonial-cite">— Peter Loomis, <a href="https://www.affymetrix.com" target="_blank" rel="noopener">Affymetrix</a></cite>
-        </blockquote>
-      </div>
-      <div class="process-panel" data-step="production">
-        <h3 class="process-panel-title">Production Integration</h3>
-        <p class="process-panel-body">I can take work all the way to production — code, agents, APIs. No handoff required unless the team wants one. The best outcome is something live that real people use, not a deck that describes what it could be.</p>
-        <blockquote class="process-testimonial">
-          <p class="process-testimonial-quote">"Erik is able to truly bring the best out of his team. He is a charismatic leader that is not afraid to get in the trenches in order to see the job accomplished."</p>
-          <cite class="process-testimonial-cite">— Patrick Thompson, <a href="https://hightail.com" target="_blank" rel="noopener">YouSendIt</a></cite>
-        </blockquote>
-      </div>
+
     </div>
   </div>
 </section>
@@ -114,54 +166,33 @@ pageClass: page-dark
 })();
 </script>
 
-<!-- How I Work (principles — kept for reference) -->
-<section class="section" id="principles">
+<!-- Testimonials -->
+<section class="section" id="testimonials">
   <div class="container">
-    <h2 class="section-title">How I Work</h2>
-    <p class="section-intro">
-      Constraints I discovered by shipping things, serving clients, and building agents I rely on every day.
-    </p>
-    <div class="principles-grid">
-      <div class="principle">
-        <div class="principle-number">1</div>
-        <h3 class="principle-title">Investigate</h3>
-        <p class="principle-body">
-          The most expensive mistake in product is solving the wrong problem with precision.
-          I come from a scientific background. I treat every decision as a hypothesis:
-          <strong>clear question, measurable outcome, willingness to be wrong.</strong> How you frame
-          the question determines everything that follows.
-        </p>
+    <h2 class="section-title">Testimonials</h2>
+    <div class="testimonials-row">
+
+      <div class="testimonial-card">
+        <a href="https://www.linkedin.com/in/uvmathoda/" target="_blank" rel="noopener"><img src="/assets/img/headshots/uv-mathoda.jpg" alt="UV Mathoda" class="testimonial-photo"></a>
+        <p class="testimonial-name"><a href="https://www.linkedin.com/in/uvmathoda/" target="_blank" rel="noopener">UV Mathoda</a></p>
+        <p class="testimonial-quote">"Erik Burns is a game changing UX &amp; innovation thought leader, with a relentless focus on making a massive impact. Erik was instrumental in launching programs that improved the Revenue Per Buyer at realtor.com by +40-50%. Erik's interaction style helps inspire the cross functional team."</p>
+        <p class="testimonial-title">Director of Product<br><a href="https://www.realtor.com" target="_blank" rel="noopener">Realtor.com</a></p>
       </div>
-      <div class="principle">
-        <div class="principle-number">2</div>
-        <h3 class="principle-title">Discover</h3>
-        <p class="principle-body">
-          Most products solve the problem that's easiest to spec: the surface symptom,
-          the obvious pain point. There's <strong>almost always something deeper.</strong> Something
-          more human. Finding that layer is the hardest part of the job.
-          It's also the only part that changes anything.
-        </p>
+
+      <div class="testimonial-card">
+        <a href="https://www.linkedin.com/in/mihirnanavati/" target="_blank" rel="noopener"><img src="/assets/img/headshots/mihir-nanavati.jpg" alt="Mihir Nanavati" class="testimonial-photo"></a>
+        <p class="testimonial-name"><a href="https://www.linkedin.com/in/mihirnanavati/" target="_blank" rel="noopener">Mihir Nanavati</a></p>
+        <p class="testimonial-quote">"Erik is a rare gem; he is not only a prolific designer, but also a good front end developer, which allows him to quickly build compelling web applications."</p>
+        <p class="testimonial-title">VP of Product<br><a href="http://hightail.com" target="_blank" rel="noopener">Hightail</a></p>
       </div>
-      <div class="principle">
-        <div class="principle-number">3</div>
-        <h3 class="principle-title">Prototype</h3>
-        <p class="principle-body">
-          Build to learn, not to spec. The fastest insight is a live URL: <strong>something
-          real that real people can react to.</strong> AI has made this dramatically faster.
-          I can go from idea to working prototype in hours. That speed isn't just
-          efficiency — it changes what questions you can ask.
-        </p>
+
+      <div class="testimonial-card">
+        <a href="https://www.linkedin.com/in/roger-hoover-857532/" target="_blank" rel="noopener"><img src="/assets/img/headshots/roger-hoover.jpg" alt="Roger Hoover" class="testimonial-photo"></a>
+        <p class="testimonial-name"><a href="https://www.linkedin.com/in/roger-hoover-857532/" target="_blank" rel="noopener">Roger Hoover</a></p>
+        <p class="testimonial-quote">"Erik brings a passion and enthusiasm that energizes everyone he encounters and translates into superior product design. He has a knack for asking probing questions that get to the heart of an issue."</p>
+        <p class="testimonial-title">Director of Engineering<br><a href="https://www.parc.com" target="_blank" rel="noopener">Xerox PARC</a></p>
       </div>
-      <div class="principle">
-        <div class="principle-number">4</div>
-        <h3 class="principle-title">Amplify</h3>
-        <p class="principle-body">
-          The best agentic systems aren't fully automated. They're <strong>human-AI partnerships</strong>
-          with the right handoffs. I've built and used HabitualOS daily since 2025:
-          agents that handle operational work so I can focus on judgment, strategy,
-          and the things only a human should decide.
-        </p>
-      </div>
+
     </div>
   </div>
 </section>
