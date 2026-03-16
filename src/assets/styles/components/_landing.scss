@@ -886,6 +886,22 @@
   }
 }
 
+// Photo background on #who section
+#who {
+  background-image:
+    linear-gradient(to right, rgba(8, 13, 23, 0.88) 0%, rgba(8, 13, 23, 0.65) 50%, rgba(8, 13, 23, 0.2) 100%),
+    url('/assets/img/erik-wwl-merging-flip.jpg');
+  background-size: cover;
+  background-position: center top;
+}
+
+.who-photo-actions {
+  display: flex;
+  gap: $space-md;
+  flex-wrap: wrap;
+  margin-top: $space-xl;
+}
+
 // Two-column layout: SVG left, description right
 .who-layout {
   display: grid;

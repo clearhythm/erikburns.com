@@ -104,9 +104,80 @@ description: Product and UX leader building systems where AI handles operational
       <cite>— Claude (AKA everyone's favorite agent)</cite>
     </blockquote>
 
-    <div class="who-photo-actions">
-      <a href="#work" class="btn btn-primary">See the Work</a>
-      <a href="/what" class="btn btn-ghost">How I Work →</a>
+    <div class="who-layout">
+
+      <!-- Left: interactive circles with dotted callout labels -->
+      <div class="who-svg-wrap">
+        <svg class="who-svg" viewBox="0 0 530 490" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three professional domains">
+
+          <g class="who-circle-group active" data-domain="science" tabindex="0" role="button" aria-label="Health Science">
+            <circle class="who-circle" cx="170" cy="200" r="130"/>
+            <path class="who-callout" d="M 170 70 L 170 35 L 80 35"/>
+            <text class="who-callout-label" x="77" y="31" text-anchor="end">Health</text>
+            <text class="who-callout-label" x="77" y="46" text-anchor="end">Science</text>
+          </g>
+
+          <g class="who-circle-group" data-domain="product" tabindex="0" role="button" aria-label="Product &amp; UX">
+            <circle class="who-circle" cx="360" cy="200" r="130"/>
+            <path class="who-callout" d="M 360 70 L 360 35 L 450 35"/>
+            <text class="who-callout-label" x="453" y="31" text-anchor="start">Product</text>
+            <text class="who-callout-label" x="453" y="46" text-anchor="start">&amp; UX</text>
+          </g>
+
+          <g class="who-circle-group" data-domain="ai" tabindex="0" role="button" aria-label="Agentic AI">
+            <circle class="who-circle" cx="265" cy="315" r="130"/>
+            <path class="who-callout" d="M 265 445 L 265 468 L 355 468"/>
+            <text class="who-callout-label" x="358" y="472" text-anchor="start">Agentic AI</text>
+          </g>
+
+        </svg>
+      </div>
+
+      <!-- Right: description panels -->
+      <div class="who-desc-wrap">
+        <div class="who-desc active" data-domain="science">
+          <p class="who-desc-name">Health Science</p>
+          <p class="who-desc-body">I studied biological sciences at <a href="http://stanford.edu/">Stanford</a>, and ranked first in my class, achieving a <a href="https://www.beckman-foundation.org/programs/beckman-scholars/">Beckman scholarship</a> for my <a href="https://www.jneurosci.org/content/19/19/8630.short">published work</a> in neuroscience and electrophysiology. I went on to found <a href="https://www.healifyapp.com/">Healify</a> and eventually worked directly with patients as a <a href="https://www.bloomharmony.org/">somatic therapist</a>, treating chronic pain and anxiety. The science of how humans actually change has become both my academic foundation and how I approach all of my professional work.</p>
+        </div>
+        <div class="who-desc" data-domain="product">
+          <p class="who-desc-name">Product &amp; UX Design</p>
+          <p class="who-desc-body">I spent twenty years building consumer and enterprise products for popular brands such as <a href="http://apple.com/">Apple</a>, <a href="http://intuit.com/">Intuit</a>, <a href="https://www.realtor.com/">Realtor.com</a>, and <a href="https://www.capitalone.com/">Capital One</a>, reaching over 100 million users. I drove results and won awards: a 14% increase in paid conversions at Realtor.com ($45M incremental revenue), 20% fewer support calls at Intuit, and 300% ROI lift for Capital One. I learned how to optimize for KPIs, but even more importantly, how to ask the right questions.</p>
+        </div>
+        <div class="who-desc" data-domain="ai">
+          <p class="who-desc-name">Agentic AI</p>
+          <p class="who-desc-body">Agentic AI <em>is new to all of us</em>. But after I got over the initial shock of realizing it could <a href="https://finance.yahoo.com/news/anthropic-ceo-predicts-ai-models-233113047.html">fully automate my job</a>, I started getting innovative with it. Agentic AI now feels like a natural evolution of my career, the co-creative ally I have been seeking all along. I started designing, building, and architecting <a href="https://habitualos.com/">applications with AI</a> nearly full-time in 2024, and have been on a mission ever since: <strong><em>to extend human capacity in everyday life</em></strong> in deep partnership with AI.</p>
+        </div>
+      </div>
+    </div>
+    <script>
+    (function () {
+      const groups = document.querySelectorAll('#who .who-circle-group');
+      const panels = document.querySelectorAll('#who .who-desc');
+      function activate(domain) {
+        const already = document.querySelector('#who .who-circle-group.active');
+        if (already && already.dataset.domain === domain) return;
+        groups.forEach(g => {
+          if (g.dataset.domain === domain) {
+            g.classList.remove('active');
+            g.parentNode.appendChild(g); // move to top (resets paint state)
+            requestAnimationFrame(() => requestAnimationFrame(() => g.classList.add('active')));
+          } else {
+            g.classList.remove('active');
+          }
+        });
+        panels.forEach(p => p.classList.toggle('active', p.dataset.domain === domain));
+      }
+      groups.forEach(g => {
+        g.addEventListener('click', () => activate(g.dataset.domain));
+        g.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') activate(g.dataset.domain); });
+      });
+      // Ensure default active circle renders on top on load
+      const defaultActive = document.querySelector('#who .who-circle-group.active');
+      if (defaultActive) defaultActive.parentNode.appendChild(defaultActive);
+    })();
+    </script>
+    <div style="margin-top: 2.5rem;">
+      <a href="/what" class="btn btn-outline">Explore More →</a>
     </div>
   </div>
 </section>
