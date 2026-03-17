@@ -1772,17 +1772,59 @@
   position: relative;
   overflow: hidden;
   background: #080d17;
-  padding: 7rem 0 3rem;
+  padding: 8rem 0 6rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-
   @media (min-width: $breakpoint-md) {
-    padding: 10rem 0 4rem;
+    padding: 12rem 0 8rem;
   }
 }
 
 .page-intro-content {
   position: relative;
   z-index: 1;
+}
+
+.page-intro-mountain {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 55%;
+  pointer-events: none;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent 0%, black 45%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 45%);
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    width: 72%;
+    top: auto;
+    bottom: 0;
+    height: 55%;
+  }
+}
+
+.mountain-layer {
+  stroke-width: 1;
+}
+
+.mountain-layer--back {
+  fill: rgba(124, 58, 237, 0.06);
+  stroke: rgba(167, 139, 250, 0.2);
+}
+
+.mountain-layer--mid {
+  fill: rgba(124, 58, 237, 0.1);
+  stroke: rgba(167, 139, 250, 0.4);
+}
+
+.mountain-layer--front {
+  fill: rgba(124, 58, 237, 0.18);
+  stroke: rgba(167, 139, 250, 0.38);
 }
 
 .page-letter-ghost {
