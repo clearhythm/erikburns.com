@@ -1768,6 +1768,14 @@
 
 // ─── Page intro (text-only framing header) ───────────────────────────────────
 
+.case-study-logo,
+.case-study-lotus {
+  height: 108px;
+  width: auto;
+  margin-bottom: $space-md;
+  display: block;
+}
+
 .page-intro {
   position: relative;
   overflow: hidden;
@@ -2058,11 +2066,16 @@ a > .testimonial-photo {
   gap: $space-2xl;
   flex-wrap: wrap;
   padding: $space-xl 0;
-  border-top: 1px solid $color-border;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 
-  html[data-theme="dark"] & {
-    border-color: $dark-color-border;
-  }
+  .featured-stat-num  { font-size: $font-size-4xl; }
+  .featured-stat-label { font-size: $font-size-base; }
+}
+
+.page-dark,
+html[data-theme="dark"] {
+  .featured-stat-num { color: #fff; }
+  .featured-stat-label { color: rgba(255, 255, 255, 0.5); }
 }
 
 .case-study-body {
@@ -2146,6 +2159,26 @@ a > .testimonial-photo {
   strong {
     font-weight: 600;
     color: rgba(255, 255, 255, 0.92);
+  }
+}
+
+// TODO: design the Insight block properly — placeholder styling for now
+.case-study-insight {
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  border-radius: 8px;
+  padding: $space-lg $space-xl;
+  margin: $space-xl 0;
+
+  p { margin: 0; }
+
+  .case-study-insight-label {
+    font-family: $font-body;
+    font-size: $font-size-sm;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #a78bfa;
+    margin-bottom: $space-xs;
   }
 }
 
