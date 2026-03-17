@@ -103,6 +103,13 @@ pageClass: page-dark
   });
   const defaultActive = document.querySelector('#who .who-circle-group.active');
   if (defaultActive) defaultActive.parentNode.appendChild(defaultActive);
+
+  const hashMap = { 'who-product': 'product', 'who-science': 'science', 'who-ai': 'ai' };
+  const domain = hashMap[window.location.hash.slice(1)];
+  if (domain) {
+    activate(domain);
+    setTimeout(() => document.getElementById('who').scrollIntoView({ behavior: 'smooth' }), 100);
+  }
 })();
 </script>
 
