@@ -461,27 +461,3 @@ description: Product and UX leader building systems where AI handles operational
 })();
 </script>
 
-<div id="signal-coming-soon" style="display:none;position:fixed;inset:0;z-index:1000;background:rgba(10,8,25,0.85);backdrop-filter:blur(6px);align-items:center;justify-content:center;">
-  <div style="background:#1e293b;border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:2.5rem;max-width:420px;width:90%;text-align:center;position:relative;">
-    <button id="signal-coming-soon-close" style="position:absolute;top:1rem;right:1rem;background:none;border:none;color:rgba(255,255,255,0.5);font-size:1.5rem;cursor:pointer;line-height:1;">&times;</button>
-    <div style="font-size:2.5rem;margin-bottom:1rem;">📡</div>
-    <h3 style="color:#e2e8f0;font-size:1.25rem;margin-bottom:0.75rem;">Signal is coming soon.</h3>
-    <p style="color:rgba(255,255,255,0.6);font-size:0.95rem;line-height:1.6;margin-bottom:1.5rem;">I'm training the agent on my actual work history. In the meantime, reach me directly — I respond to real humans.</p>
-    <a href="mailto:erik@erikburns.com" class="btn btn-primary" style="display:inline-block;">Say Hello</a>
-  </div>
-</div>
-
-<script>
-(function () {
-  var modal = document.getElementById('signal-coming-soon');
-  var closeBtn = document.getElementById('signal-coming-soon-close');
-  document.querySelectorAll('.signal-open-modal').forEach(function (el) {
-    el.addEventListener('click', function (e) {
-      e.preventDefault();
-      modal.style.display = 'flex';
-    });
-  });
-  closeBtn.addEventListener('click', function () { modal.style.display = 'none'; });
-  modal.addEventListener('click', function (e) { if (e.target === modal) modal.style.display = 'none'; });
-})();
-</script>
