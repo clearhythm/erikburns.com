@@ -48,11 +48,11 @@ description: Product and UX leader building systems where AI handles operational
       <div class="signal-left">
         <h2 class="section-title">Just <em>Experience</em> It.</h2>
         <p class="section-intro">Great work is about more than just a résumé and skills. I trained a custom agent on <em>how I actually work</em> — my wins, my dead ends, my thinking, and my personality. If you tell it who you are and why you're here, it'll tell you honestly how strong of a fit I am <strong>for you and your team</strong>, and why.</p>
-        <a href="#" class="btn btn-outline signal-open-modal signal-cta-btn signal-cta-desktop">Get Our Fit Score →</a>
+        <a href="#" class="btn btn-outline signal-cta-btn signal-cta-desktop" onclick="event.preventDefault(); window.Signal && Signal.open()">Get Our Fit Score →</a>
       </div>
 
       <!-- Right: card (entire card is click target) -->
-      <div class="signal-orb-col signal-open-modal">
+      <div class="signal-orb-col" onclick="window.Signal && Signal.open()" style="cursor:pointer">
         <p class="signal-sample-label">Sample Fit Score</p>
         <div class="signal-card-top">
           <div class="signal-orb-wrap" aria-hidden="true">
@@ -89,7 +89,7 @@ description: Product and UX leader building systems where AI handles operational
       </div>
 
       <!-- CTA below card (mobile only) -->
-      <a href="#" class="btn btn-outline signal-open-modal signal-cta-mobile">Get Our Fit Score →</a>
+      <a href="#" class="btn btn-outline signal-cta-mobile" onclick="event.preventDefault(); window.Signal && Signal.open()">Get Our Fit Score →</a>
 
     </div>
   </div>
