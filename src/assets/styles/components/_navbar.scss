@@ -214,6 +214,23 @@ html[data-theme="dark"] .navbar.active {
   }
 }
 
+.sidemenu-contact {
+  margin-top: 0.5rem;
+
+  a {
+    font-family: $font-body;
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.45);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+
+    &:hover { color: rgba(255, 255, 255, 0.8); }
+  }
+}
+
 .sidemenu-left footer {
   padding: 2rem 0;
 }
