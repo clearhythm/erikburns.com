@@ -1680,7 +1680,7 @@
 }
 
 .featured-stat-num {
-  font-family: $font-mono;
+  font-family: $font-heading;
   font-size: $font-size-2xl;
   font-weight: 700;
   color: $color-text;
@@ -1791,7 +1791,8 @@
 .case-study-lotus {
   height: 108px;
   width: auto;
-  margin-bottom: $space-md;
+  margin-top: -1rem;
+  margin-bottom: $space-lg;
   display: block;
 }
 
