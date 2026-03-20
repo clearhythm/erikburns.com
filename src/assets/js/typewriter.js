@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const wordEl = document.querySelector('.cycle-word');
   if (!wordEl) return;
 
-  const words = ['Science', 'Behavior', 'Systems'];
+  const words = ['Work', 'Behavior', 'Systems'];
   let index = 0;
 
   // Entrance: span starts blurred in HTML, remove class to animate in
