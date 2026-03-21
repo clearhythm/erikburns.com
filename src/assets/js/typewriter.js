@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   function next() {
-    index = (index + 1) % words.length;
+    if (index >= words.length - 1) return;
+    index++;
 
     wordEl.classList.add('cycle-blur');
 
@@ -26,7 +27,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Start cycling after entrance transition completes
   setTimeout(function() {
-    setInterval(next, 7000);
+    var interval = setInterval(function() {
+      next();
+      if (index >= words.length - 1) clearInterval(interval);
+    }, 7000);
   }, 1500);
 
   // Signal orb label — cursor sweeps through old word replacing with new
