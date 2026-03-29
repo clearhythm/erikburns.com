@@ -1,21 +1,3 @@
-/**
- * Signal — bar animation + launch helper
- * Chat is handled by embed.js from signal.habitualos.com
- *
- * To go live: set SIGNAL_LIVE = true
- */
-
-window.SIGNAL_LIVE = false;
-
-window.signalLaunch = function () {
-  if (window.SIGNAL_LIVE && window.Signal) {
-    Signal.open();
-  } else {
-    var modal = document.getElementById('signal-coming-soon');
-    if (modal) modal.style.display = 'flex';
-  }
-};
-
 (function () {
   const orbCard = document.querySelector('.signal-orb-col');
   if (!orbCard) return;
